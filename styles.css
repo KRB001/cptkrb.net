@@ -1,3 +1,5 @@
+/* WIP Main Stylesheet for CPTKRB.net */
+
 body {
     background-color: black;
     background-image: url("resources/stars_bg.gif");
@@ -5,6 +7,8 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Major inline elements */
 
 h1 {
     font-family: "Trebuchet MS", sans-serif;
@@ -44,7 +48,9 @@ a {
     text-shadow: -1px 1px white;
 }
 
-main {
+/* Main 'boxes' for most pages */
+
+main.in_progress {
     width: 40%;
     min-width: 400px;
     margin: 12% auto 2% auto;
@@ -52,6 +58,16 @@ main {
     border: double white 4px;
     background-color: black;
 }
+
+main.large {
+    width: 90%;
+    min-width: 600px;
+    margin: 2% auto 2% auto;
+    border: double white 4px;
+    background-color: black;
+}
+
+/* Useful divs */
 
 div.spacer {
     margin: 20%;
@@ -92,6 +108,8 @@ div.footer_border {
     margin: 10px 0 10px 0;
 }
 
+/* Specific images that may be reused (some of these may be deleted soon-ish if they prove unnecessary) */
+
 img.logo {
     width: 70%;
     margin: auto;
@@ -109,6 +127,23 @@ img.button {
     height: 45px;
     width: auto;
 }
+
+/* Lists */
+
+ul.music_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.music_list > li {
+    width:100%;
+    color:white;
+    height:40px;
+    border-bottom: solid white 2px;
+}
+
+/* Custom buttons */
 
 button.trinket_button {
     font-family: "Courier New", serif;
@@ -135,6 +170,8 @@ button.trinket_button:active {
         width: 100%;
     }
 }
+
+/* Specialty / Utility */
 
 .construction span {
     color: darkgray;
