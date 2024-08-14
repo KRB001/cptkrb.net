@@ -20,6 +20,14 @@ h2 {
     font-size: calc(12px + 1vw);
 }
 
+h3 {
+    font-family: "Rockwell", serif;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+    font-size: calc(10px + 1vw);
+}
+
 p {
     font-family: "Arial", sans-serif;
     color: white;
