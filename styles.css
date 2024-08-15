@@ -137,10 +137,34 @@ ul.music_list {
 }
 
 ul.music_list > li {
-    width:100%;
     color:white;
     height:40px;
     border-bottom: solid white 2px;
+    align-items: center;
+    display:flex;
+}
+
+ul.music_list > li:last-child {
+    border-bottom: none;
+}
+
+ul.music_list > li > ul {
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.music_list > li > ul > li {
+    border-right: solid white 2px;
+    width:100%;
+}
+
+ul.music_list > li > ul > li:last-child {
+    border-right: none;
 }
 
 /* Custom buttons */
