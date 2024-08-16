@@ -22,18 +22,20 @@ for (let i = 0; i < manifest_entries.length; i++) {
     let tags = document.createElement('li');
     let album = document.createElement('li');
     let date = document.createElement('li');
+    let download = document.createElement('li');
     tags.style = "width:250px";
     album.style = "width:200px";
     date.style = "width:80px";
-    let download = document.createElement('li');
+    download.style = "width:100px";
+
 
     // create inner elements for row information
     let name_insert = document.createElement('p');
     let tags_insert = document.createElement('p');
     let album_insert = document.createElement('p');
     let date_insert = document.createElement('p');
-    let download_insert = document.createElement('p');
     let download_link = document.createElement('a');
+    let download_button = document.createElement("button");
 
     // set values to inner elements
     name_insert.innerText = manifest_entries[i].split(",")[0];
@@ -49,7 +51,8 @@ for (let i = 0; i < manifest_entries.length; i++) {
     album_insert.innerText = manifest_entries[i].split(",")[2];
     date_insert.innerText = manifest_entries[i].split(",")[3];
     download_link.setAttribute("download", "");
-    download_link.innerText = "DOWNLOAD";
+    download_button.innerText = "DOWNLOAD";
+    download_button.className = "download-button";
     download_link.href = "music-files/" + manifest_entries[i].split(", ")[4]
 
     // put it all together
@@ -57,8 +60,8 @@ for (let i = 0; i < manifest_entries.length; i++) {
     tags.appendChild(tags_insert);
     album.appendChild(album_insert);
     date.appendChild(date_insert);
-    download_insert.appendChild(download_link);
-    download.appendChild(download_insert);
+    download_link.appendChild(download_button);
+    download.appendChild(download_link);
     row_insert.appendChild(name);
     row_insert.appendChild(tags);
     row_insert.appendChild(album);

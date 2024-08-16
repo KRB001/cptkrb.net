@@ -216,6 +216,33 @@ button.trinket_button:active {
     color: black;
 }
 
+button.download-button {
+    font-family: "Courier New", serif;
+    font-weight: bold;
+    background-color: black;
+    color:mediumorchid;
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    border: white outset 6px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+button.download-button:hover {
+    color: fuchsia;
+    text-shadow: 0px 0px 5px magenta;
+    transition-duration: 0.3s;
+}
+
+button.download-button:active {
+    border: white inset 6px;
+    background-color: fuchsia;
+    color: black;
+    text-shadow: none;
+    transition-duration: 0s;
+}
+
 @media screen and (max-width: 850px){
     button.trinket_button {
         width: 100%;
