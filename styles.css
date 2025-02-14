@@ -11,14 +11,14 @@ body {
 /* Major inline elements */
 
 h1 {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: "Courier New", sans-serif;
     color: white;
     text-align: center;
     font-size: calc(24px + 1vw);
 }
 
 h2 {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: "Courier New", sans-serif;
     color: white;
     text-align: center;
     font-size: calc(12px + 1vw);
@@ -138,8 +138,14 @@ img.button {
     width: auto;
 }
 
-/* Lists */
+img.icon_small {
+    height: 50px;
+    display: inline-block;
+}
 
+/* #### Lists #### */
+
+/* Music List */
 ul.music_list {
     list-style-type: none;
     padding: 0;
@@ -224,6 +230,69 @@ ul.music_list > li > ul > li:last-child {
     width: 100px;
     text-align: center;
     border-right: none;
+}
+
+
+/* Docs List */
+
+ul.docs_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    line-height: 1em;
+}
+
+ul.docs_list > li {
+    color:white;
+    height:60px;
+    border-bottom: solid white 2px;
+    align-items: center;
+    display:flex;
+}
+
+ul.docs_list > li:last-child {
+    border-bottom: none;
+    background-color: dimgrey;
+}
+
+ul.docs_list > li:first-child {
+    outline: solid yellow 3px;
+}
+
+ul.docs_list > li > ul {
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.docs_list > li > ul > li {
+    padding-left: 10px;
+    padding-top: 4px;
+    text-align: left;
+    border-right: solid white 2px;
+    width:150px;
+}
+
+ul.docs_list > li > ul > li:first-child {
+    width:100%;
+}
+
+ul.docs_list > li > ul > li:last-child {
+    border-right: none;
+}
+
+ul.docs_list > li > ul > li > p {
+    height:20px;
+    width: inherit;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Custom buttons */
