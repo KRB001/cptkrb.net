@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Script for Your Domain Does Not Exist">
+  <meta name="author" content="Kieran">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documents - Your Domain Does Not Exist</title>
+  <link rel="icon" type="image/x-icon" href="../icon.ico">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <div class="brief">
+    <p><a href="docs_main.html"><<< Back to index</a></p>
+  </div>
+
+  <main class="doc">
+    <h1>Your Domain Does Not Exist</h1>
+    <h2>By Captain KRB (Kieran)</h2>
+
+    <p class="purple-glow hey">
+      Hey Everybody
+    </p>
+    <p>
+        So, I’m gonna go out on a limb here. Seeing as how you’re watching this video,
+      I’d imagine you’re at least tangentially interested in learning about things,
+      or at the very least being briefly entertained. And, well, you’re in the right
+      place to do it; strange stories and obscure information alike have, in the dawning
+      years of the information age, been suddenly and unceremoniously rocketed to the
+      forefront of the public consciousness. A lucky individual in the present day needs
+      only open their mind to the great recsys-selected stream, and they’ll become privy to
+      bits of knowledge both practical and utterly pointless that previous generations
+      couldn’t have even dreamed of. I’m sure you’re familiar with the practice: you
+      simply launch your web browser of choice, and make the pilgrimage to www.youtube.com.
+      But is that actually where you’re going?
+    </p>
+    <p>
+      People within the bounds of my generation are digital natives; they’ve grown up
+      surrounded by and culturally immersed in the technologies of the global net, and
+      as a result many of the practices surrounding it have been abstracted and colloquialized.
+      No one younger than 50 needs to be reminded what it means to visit a site, and terms
+      like ‘email’ and ‘internet’ have been adopted into conversational speech so thoroughly
+      that we don’t even capitalize or punctuate them properly anymore. But this doesn’t
+      necessarily translate to a more complete understanding regarding the great hulk of data
+      systems that underly the net.
+    </p>
+    <p>
+      It's commonly understood that when you punch in the domain name of your favorite platform,
+      your browser is accessing the website located at that address. But the truth is far less
+      straightforward; simply put, the domain you enter, in a technical sense, doesn’t really
+      mean anything site-wise. The decades of governmental, scientific and corporate development
+      required to give you the ability to type ‘minecraft.net’ into the search bar and actually
+      get something meaningful is truly fascinating to reflect on, as is the small handful of
+      times that someone’s managed to cause difficulty for the system. A story of rapid technological
+      advancement, of clashing corporate interests and of an expansive system that most people
+      don’t give a second thought to today. And, if you’ll pardon the personal aside, I just think
+      DNS is really cool and I’ve wanted to talk about it for a while. I give you: Your Domain Does Not Exist.
+    </p>
+    <p>
+      DNS, the fittingly-named Domain Name System, is one of the fundamental forces that keeps the internet of
+      today running smoothly, alongside slightly better-known protocols like HTTP and IP. The service it
+      provides is a simple one, at least on the surface: it allows internet users and systems to correlate
+      otherwise meaningless hostnames and domains with usable IP addresses, and other adjacent tasks.<a href="#1" class="citation">[1]</a>
+      This will be expanded on later I promise, but by and large the most common analogy used is that of
+      an address book. The average person is conditioned not to remember 10-digit phone numbers, but to
+      keep an internal record of names. You don’t introduce yourself with your area code. But a name isn’t
+      gonna do you much good if you actually want to contact that person remotely. Savvy communicator that
+      you are, you take out your address book and find the phone number that corresponds to the name you
+      seek. You don’t have to remember numbers at all as long as you know where to find that book. The
+      phone number, in this analogy, is your standard IP address: long, hard to remember, but technically
+      meaningful. The domain name is, well, the name: mnemonic, easy to recollect, but perfectly
+      meaningless when you wanna make a call. Your browser or whatever client-side application
+      you’re using, uses DNS as its address book, performing a lookup on a human-readable address
+      and getting an IP that can actually point it in the proper direction.<a href="#1" class="citation">[1]</a> But, of course, it hasn’t
+      always been this way.
+    </p>
+    <p>
+      Now, the difficulty in remembering a numerical address isn’t a new phenomenon, and the
+      use of more memorable host and domain names dates back to the ARPANET days.<a href="#2" class="citation">[2]</a>  The primary
+      difference of course being that in those days, you could fit the sum total of net users AND
+      hosts in a reasonably-sized McDonalds.<a href="#3" class="citation">[3]</a>  The entirety of ARPANET existed in what would become
+      the 10.0/8<a href="#4" class="citation">[4]</a> block,  1/256th of our current IPv4 addresses alone, and even that was massively,
+      massively excessive for the actual number of machines within the network. So instead of a
+      complex worldwide domain lookup system, you had a handful of very diligent people at Stanford
+      writing addresses down in a text file. In 1974 a department at the Stanford Research Institute
+      called the Network Information Center, or NIC, began working to facilitate the usage of hostnames.<a href="#5" class="citation">[5]</a>
+      Run by scientist Elizabeth “Jake” Feinler, the purpose of NIC was to process requests from ARPANET
+      users who wanted a hostname assigned to their machine and to input the name-address correspondence
+      into a database that users could query. I guess you could consider it a database. In reality, it
+      was a single text file called hosts.txt that Feinler and the NIC staff maintained on a host
+      called OFFICE-1.<a href="#6" class="citation">[6]</a>   Address entries could be performed by emailing or calling NIC, except when they
+      were out of the office,<a href="#5" class="citation">[5]</a> and address lookups were as easy as connecting to OFFICE-1 and just…
+      reading the file. And this system worked for around 8 years.
+    </p>
+    <p>
+      But as expected, in its gradual but entirely uncompromising way, the net continued to expand.
+      In the early years of the 1980s it was deduced by the Internet Engineering Task Force, or IETF,
+      that running the entirety of the internet’s nameservers off a single file at Stanford wasn’t the
+      most robust or efficient way to go about things, and beginning around 1982 multiple new methods
+      and systems were trialed to serve as replacements.<a href="#7" class="citation">[7]</a>   An official call for a new system went
+      out with the publishing of RFC 882<a href="#8" class="citation">[8]</a>  in November of 1983 and later
+      RFC 920<a href="#9" class="citation">[9]</a>  in October of 1984;
+      the initial paper, written and designed by networking pioneer Paul Mockapetris, would go on to
+      define the requirements and specifications for what we now know as DNS. As fate would have it,
+      the most defining and enduring implementation of DNS software, the Berkeley Internet Name Domain,
+      or BIND, was developed in May 1984 by, as you may have guessed, a group of students at UC Berkeley.
+      BIND ran on Unix platforms and has since become the most well-known DNS software packages,
+      developed early on by a company that would become part of the present Hewlett-Packard and maintained
+      for upwards of 40 years by the Internet Software Consortium.<a href="#10" class="citation">[10]</a>  And the rest, as is often said, is history.
+    </p>
+    <p>
+      Today, the Domain Name System is not run out of a NIC office; in fact, it’s not located in a
+      single place at all. The modern DNS is vaguely decentralized in the way a number of modern internet
+      infrastructure systems are, and the way it operates has always been incredibly fascinating for
+      me. The first thing to understand, and arguably one of the least intuitive, is that DNS looks
+      at domain names backwards. Any given domain is constructed of several name spaces, representing the
+      set of all domains beginning (or I suppose ending) with a given prefix (or suffix); this is
+      getting confusing. Essentially, all domain names, ever, fall under ‘.’ As in, the imaginary final
+      dot at the end of every domain name, as if you were gonna have another piece of text tacked onto it.
+      Then comes the Top-Level Domain, or TLD; these are things like .com and .gov and .football. In its
+      own weird little Rings of Power type event, the internet began with just one TLD; .arpa, forged in
+      the unending darkness of the year 1983 as a sort of stopgap while the internet transitioned to using
+      this new namespace system,<a href="#11" class="citation">[11]</a>  but two years later seven more were forged to be gifted unto the lesser
+      host machines of the realm; these are the ones you’re likely most familiar with: .net and .gov and
+      so on.<a href="#12" class="citation">[12]</a>  Somewhere along the way things got a little out of hand cuz now there’s over 1500 of them,
+      but at least we have .lifeinsurance.<a href="#13" class="citation">[13]</a>  Anyway, these all exist within that first dot, the root
+      namespace, but they each represent a namespace of their own. Every domain that’s suffixed with a
+      particular TLD belongs to that TLDs namespace: google.com is in the .com space, minecraft.net in the
+      .net space, you know the drill. And it just keeps going from here. Usually, the chain stops 3 or 4
+      layers deep, either with the ‘www’ or the string that follows it, and this is traditionally where
+      the actual site can abstractly be found, but you can go as far down as needed.<a href="#14" class="citation">[14]</a>  But this, of course,
+      is all abstract. How does it actually work?
+    </p>
+    <p>
+      Well, let’s trace it. It begins when you hit enter on your URL bar; say you’re going to YouTube.
+      Your browser doesn’t understand what that means, so it queries a local recursive resolver. This
+      is the first link in the chain and the only one the system can’t get on its own. This is the
+      equivalent of knowing where in your house the phone book actually is so you can do a lookup;
+      remember, without an IP address, no computer connected to the net will know how to connect
+      to any other computer. Luckily, your ISP will almost always hook you up, and during the
+      host assignment that happens when you link up with a local network your computer usually
+      gets the address of a nearby resolver it can use. Sometimes it’s part of your local router,
+      sometimes it’s stashed away in a server room somewhere, and sometimes it’s a public service
+      offered by a network infrastructure company like Cloudflare’s 1.1.1.1; where it is isn’t
+      really important, cuz now your computer knows exactly who to ask. If you’re lucky, the
+      resolver will already have the IP cached; in an effort to save time and resources, many
+      local resolvers keep a short-term cache of recently accessed domains and their IPs, as does
+      your browser, and in this case a response immediately bounces back and your browser knows
+      where to go. But since this would be pretty boring, let’s say the resolver’s never heard of
+      YouTube before.<a href="#15" class="citation">[15]</a>
+    </p>
+    <p>
+      The process now basically follows the order of namespaces we touched on just a little
+      while ago. The resolver reads the dot at the end of your domain and shoots off a message
+      to the big boss at the top of the DNS chain: Root DNS. There are, officially, 13 of them,
+      lettered A through M and granted their great power and influence by the Internet Assigned
+      Numbers Authority, but in actuality each of these actually represents anywhere from 2 to
+      over 100 actual server sites through a protocol called Anycast, allowing Root to handle
+      the truly massive daily traffic load resulting from all DNS traffic being routed through
+      them in some way or another.<a href="#16" class="citation">[16]</a>  Resolvers, first and foremost, reach out to one of the many
+      root servers with a simple query: where the hell can I find www.youtube.com?
+    </p>
+    <p>
+      Well, root can’t tell it that. But it can tell the resolver where to find someone who can.
+      Root dispenses with a record (or set of records) containing an IP address for a TLD DNS;
+      in this case, the servers with authority over .com, as Root holds records of the addresses
+      for servers pertaining to every TLD known to exist. Receiving this response, the resolver
+      sends off the same query to the .com servers, but they don’t know where to find YouTube
+      either. However, they can get us a little closer. A TLD DNS server holds records of the
+      nameservers for every domain that falls under its command, and so while it can’t tell
+      your resolver exactly where to find YouTube, it just so happens to know that this particular
+      bit of information can be found on ns1.google.com, which it just so happens to have the
+      IP address for. This is an authoritative server; it’s the only kind of DNS provider that
+      can officially tell you the IP for a specific address, and it’s generally the last stop
+      on the journey. One last time, your resolver asks its question, and finally, somebody
+      gives a straight answer. Head on over to 142.250.64.78, it says, and you’ll find what
+      you seek. Satisfied, your resolver responds to your browsers original query, and with
+      that your machine performs a handshake with the webserver and establishes a TCP connection.
+      You may be wondering what the point is of all this asking and re-asking when it might,
+      perhaps, be quicker to just distribute a list of addresses. The answer, as you may have
+      also guessed, is that that list would be invalidated the precise moment somebody decided
+      to switch servers but keep their domain name. If that happened to be a single site? Not a
+      big problem. If it was root, or one of the major TLD servers? You’re now stranded up the
+      networking version of the proverbial creek without a proverbial paddle to speak of. This
+      is why it’s so crucial that all these moving parts work together so smoothly; it’s the
+      internet, things are constantly changing, and actually knowing the real-time address of any
+      networked server on the planet is, I think, worth having to query a couple of servers across
+      the country. Of course, this all happens in terms of milliseconds, so in all likelihood it’s
+      already occurred before your finger leaves the enter key. This is likely part of what gives
+      rise to the belief that your browser actually knows where to go when you punch in a new
+      address instead of stumbling around asking servers until somebody drops a hint.<a href="#15" class="citation">[15]</a>
+    </p>
+    <p>
+      And that, in a sense, is basically DNS. Obviously, there’s a lot more functionality to it,
+      and a lot more than happens beneath the surface. DNS also handles email requests, labeled
+      as ‘MX’ records instead of domain-name ‘A’ records in server databases. The YouTube lookup
+      I described here also isn’t quite as easy as I made it seem; for ease of access,
+      www.youtube.com is actually stored as an alias, or ‘CNAME’ record, which in the case of
+      the authoritative Google nameserver actually tells the resolver to ask again, this time
+      for YouTube’s canonical name, that being ‘youtube-ui.l.google.com’. This is, obviously,
+      considerably more annoying to remember than youtube.com, but with things like CNAME records
+      little kinks like this are easy to work out.
+    </p>
+    <p>
+      The system is smart, too. It’s constantly performing load balancing, making sure that
+      requests are distributed amongst servers so as to not accidentally DDoS them. The
+      classic method was known as Round-Robin DNS, which consisted of servers shuffling a
+      list of potential target servers each time they were requested so each one got their
+      time in the spotlight. Of course, a number of drawbacks have been exposed in the many
+      years since this method was in practice, and nowadays more complex and dedicated
+      load-balancing algorithms come into play. But even with load balancing, some among
+      you may rightfully be wondering how the hell this all manages to run smoothly. How
+      can a small handful of agencies and nonprofits administrate such a robust and far-reaching
+      global infrastructure system? Basically, how can ICANN, the Internet Corporation for
+      Assigned Names and Numbers, run every single root DNS server? Well, you might have already
+      guessed the answer: they don’t. They really, really, don’t.
+    </p>
+    <p>
+      Well, that’s sort of a lie. They run one of them; the L Server, to be specific. L-Root c
+      arries the distinct honor of being the only one of the 13 current root nameservers to be
+      directly administrated and operated by ICANN. And the rest? They get outsourced. A handful
+      of these are run by scientific and government organizations: B-Root is run by University of
+      Southern California, K-Root is run by a European nonprofit called RIPE, G-Root and H-Root are
+      run by the Department of Defense and the US Army respectively. But many of the others are run by
+      publicly traded companies.<a href="#16" class="citation">[16]</a> This is part of the weird little area of intersectionality where
+      computer science and engineering and corporate interests start to intermingle.
+    </p>
+    <p>
+      When systems like DNS and IP and DHCP and so on were first introduced, the internet was really
+      just a small community, where strongly centralized systems weren’t really needed<a href="#3" class="citation">[3]</a>; and if they
+      were, they existed as tiny, manually-run operations like NIC’s hosts file. But when the net
+      exploded with a raging torrent of new and inexperienced users, and that torrent showed no signs of
+      easing up, it was clear that this was no longer tenable. In other words, Big Ass Servers were going
+      to be needed if everything was to work smoothly. Authoritative servers could basically run themselves;
+      webmasters and startups would be able to set up and register them on their own. But for root
+      and TLDs? Someone with deep pockets and a fair bit of technical knowledge would need to step in.<a href="#17" class="citation">[17]</a>
+      <a href="#18" class="citation">[18]</a> Companies like, for example, Verisign, a billion-dollar communications corporation that, as of
+      today, manages two of the 13 root servers and has full authority over everyday staples like
+      .net and .edu.<a href="#19" class="citation">[19]</a>  But how would this all be facilitated? Strap in, again, cuz this is another thing
+      entirely.
+    </p>
+    <p>
+      We start at the top, with ICANN. The corporation, and its sub-organization IANA, or the Internet
+      Assigned Numbers Authority, has since 1998 been the sole group in charge of delegating and managing
+      the myriad namespaces of the DNS. ICANN and IANA approve the creation of new TLDs, manage the
+      regulations and standards surrounding the system as a whole, and partition out the ownership
+      and management of domains to companies and organizations.<a href="#20" class="citation">[20]</a>  The way they do this is by accrediting
+      registries. A registry is any organization or company that, after a rigorous review process by
+      ICANN, is granted authority and licensing permissions over one or more TLDs. In practice, this
+      means that, well, they maintain the bible of their TLD of choice - they own the TLD servers.
+      Once a group is given the coveted registry status by IANA, they essentially become a domain
+      dispenser; if you really want that .men domain, you’re gonna have to take it up with the GRS
+      Domains Company.<a href="#21" class="citation">[21]</a>
+    </p>
+    <p>
+      TLDs can and do get passed around a lot by these registries. When a company in possession of
+      one goes under or gets acquired ownership is gonna get handed to someone else, and when a
+      new batch of TLDs first goes live, there’s generally rounds of frantic public and private
+      bidding to see who gets the rights to become its official registry.<a href="#22" class="citation">[22]</a>  Exclusive ownership
+      of a top-level domain can mean power, wealth, and influence, and there’s a lot of people
+      who’d really like to get their hands on one. The exception to this, of course, are ccTLDS:
+      things like .uk, .de and .ru. These are created for, and managed by, just- entire countries,
+      and they sorta exist in their own little domain.<a href="#23" class="citation">[23]</a>  No pun intended. But excluding these, chances
+      are any site you’ve visited in your lifetime had to first buy its domain from a company like Verisign.
+    </p>
+    <p>
+      I bring them up again because, alongside their being probably the heaviest hitter in the DNS field,
+      owning a solid chunk of the original Big 8 TLDs and two of the world’s root servers, they
+      also in a sense represent the culmination of several brutal decades in the domain trade.
+      In 1992, registryship became a lucrative state of being, the National Science Foundation
+      put out a contract for companies willing to construct and maintain infrastructure for the
+      DNS of tomorrow.<a href="#17" class="citation">[17]</a> This being the antebellum pre-eternal-September period, the contract
+      received only a small handful of bidders, the winner being a modest Virginia-based tech
+      consulting company called Network Solutions. Now, being the winner, Network Solutions
+      basically got the whole cake. They were granted registry status over .com, .net, .org, .mil
+      (under subcontract), full ownership of the original A-Root server, even operation of the
+      WHOIS lookup service. But when the NSF very controversially gave Network Solutions the
+      ability to charge fees for registration in 1995, companies smelled blood in the water and
+      immediately got to work divvying the cake up.<a href="#17" class="citation">[17]</a>
+    </p>
+    <p>
+      That same year, a government tech contractor called Science Applications International
+      Corporation bought out Network Solutions, and for the next five years saw it transform
+      into a high-octane money machine.<a href="#24" class="citation">[24]</a>  During this period of lucrative, explosive expansion,
+      a number of other domain-adjacent companies would either manifest from thin air thanks
+      to the sheer temptation of entering the domains business, or shift gears from whatever
+      else they were doing to focus on it, spurred on by encouragement from a collection of
+      government agencies and committees to break the Network Solutions monopoly.<a href="#17" class="citation">[17]</a> At the
+      height of the dotcom bubble in 2000, Network Solutions was acquired by one such company,
+      Verisign. The former cryptographic certification company held on to Network Solutions til
+      2003, when it was again sold to an equity group for many millions. This game of domain
+      service hot potato continued throughout the primordial days of the early modern web,
+      with Network Solutions buying things and being bought, transformed, divested, bought by
+      Web.com, merged, renamed, un-renamed, and so on ad infinitum.<a href="#19" class="citation">[19]</a>
+      <a href="#17" class="citation">[17]</a> These days, power
+      over the commercial face of DNS is consolidated largely in a handful of large companies,
+      including of course Network Solutions and Verisign but also featuring more multifaceted
+      groups like Google and Cloudflare and Cogent.<a href="#25" class="citation">[25]</a> Nobody only deals in DNS anymore, and you
+      can bet good money that any given tech or telecom company has its hands in the business.
+      Oh, and remember: we’re not actually all the way down the pyramid yet.
+    </p>
+    <p>
+      All these guys, as mentioned way way back, are the registries. They keep the big books
+      that contain every domain name in the known universe, and thanks to the 1995 decision
+      they have the authority to make money off every domain they register. But they aren’t
+      always the ones selling them. On the next tier, we have the registrars. This role, the
+      name of which according to legend was added by Jake Feinler as a replacement for ‘czar’
+      in the original RFC,<a href="#26" class="citation">[26]</a>  represents the long arm of the system through which domains are
+      actually sold. While Identity Digital may own the .coupon registry and server, they
+      need a ICANN-certified registrar that can talk to a customer, sell them a .coupon name,
+      and pay Identity Digital the fee to register it.<a href="#21" class="citation">[21]</a> You can think of registrars as the
+      salesmen of the domain name world, and as you might expect there’s just as much cash if
+      not more in the art of registrar-ing as there is in registry-ing. In fact, while a number
+      of companies perform registrar services as their primary function, like Namecheap, most
+      of the major groups like GoDaddy are both registries and registrars, having their cake
+      and selling it too.<a href="#27" class="citation">[27]</a>  Furthermore, even in these cases they aren’t limited to just selling
+      domains that they own; any registrar can sell domains with TLDs belonging to any registry
+      as long as they have an agreement. Imagine a Ford dealership that has a Ford factory
+      attached to it but can also sell Toyotas and Audis as long as they pay them a sellers
+      fee. The fact is, everybody has their hands in everything, and that doesn’t seem like
+      it’s gonna change any time soon.
+    </p>
+    <p>
+      Down another step on the pyramid we have domain resellers, who are essentially
+      registrars but without any of the certifications, and at the very bottom, of course,
+      is you, the domain name buyer. You’re now the proud owner of a new domain name,
+      and your request only had to go through multiple levels of established corporate
+      and organizational hierarchy to be confirmed.
+    </p>
+    <p>
+      The big takeaway here is that there’s, in a sense, two Domain Name Systems in action.
+      The first and most basal is the technical DNS: many long years of technological
+      advancement and standard-making distilled into hundreds of miles of fiberglass
+      boards and great hunks of silicon memory. You, the client, make a simple request,
+      and the many moving parts of the DNS fetch exactly what you seek from a boundless
+      digital library before you even know that it started. The second is the formal and
+      commercial DNS: decades not of scientific study but of bureaucratic organization,
+      corporate intrigue, and fierce competition that’s coalesced into a well-oiled
+      international business machine. For better or for worse, these two sides of the
+      coin have for many years coexisted, and with time have cemented themselves as one
+      of the most foundational pillars of the modern web and the internet as a whole.
+      So, naturally, people are gonna try to fuck with it.
+    </p>
+    <p>
+      DNS attacks, as they’re so appropriately called, have existed for almost as long
+      as the system itself, and they come in a variety of shapes and sizes. As can be expected,
+      the overwhelming majority tend towards the more petty end of the spectrum: attacks like
+      spoofing, where the attacking agent essentially poisons the cache of a resolver by
+      sending false DNS responses with a man-in-the-middle approach, eventually directing
+      traffic to a mockup of the desired site designed to grab data or a different site entirely.
+      Attackers have also been known to hijack authoritative nameservers, to bypass firewalls by
+      sending packets disguised as DNS queries, and much, much more.<a href="#28" class="citation">[28]</a>  A 2022 report by the
+      International Data Group found that organizations with an emphasis on network services
+      and remote work experience, on average, around 7 attacks yearly, and this is really nothing
+      new.<a href="#29" class="citation">[29]</a> But every so often, someone gets the bright idea to attempt an attack on the most
+      fortified keep of the Domain Name System: the root servers. And once in a blue moon,
+      they actually manage to do it.
+    </p>
+    <p>
+      Actually causing trouble for Root is famously difficult, due in part to the system’s
+      extensive use of IP Anycast, a load-reduction technique through which a root server’s
+      single IP is broadcast to exist at multiple locations, each housing one or more identical
+      instances of the given server. To take down D-Root, you don’t just have to DoS a single
+      server; you have to DoS 87 of them.<a href="#30" class="citation">[30]</a> To date, throughout the entire history of the system,
+      only three attacks have ever managed to successfully deal damage to Root: once in 2002,
+      again in 2007, and most recently in 2015. And we’re gonna do them in reverse order for
+      reasons that may or may not become apparent.
+    </p>
+    <p>
+      In the early morning hours of November 30th, 2015, all DNS root server addresses with the
+      notable exception of D, L, and M Root suddenly and unexpectedly became targets in a raging
+      flood of DNS queries for the domain www.336901.com. The flood increased in volume until
+      reaching its peak, a record frequency of just over 5 million request per second to some
+      root addresses. The two Verisign-owned roots, A and J, reported close to a billion individual
+      IPv4 addresses involved in the attack, suggesting both a botnet and IP spoofing to boot.
+      At the height of the 160 minute attack, involved servers were being pounded with over a hundred
+      times the average daily peak traffic before the requests eventually died down. A repeat of
+      the attack, this time shorter in length, occurred at around 5:00 UTC the next day. During the
+      attack, a small number of root sites were in fact taken down, but the built-in caching and
+      redundancy of the system ensured that no significant loss of service was recorded. The entire
+      event was over in under 24 hours, and were it not for the reports published later by Root
+      owners, the vast majority of users would have been none the wiser.<a href="#30" class="citation">[30]</a> Now, part of the reason
+      this attack was able to be absorbed so effectively was thanks to lessons learned in previous
+      attacks, the most recent of which being:
+    </p>
+    <p>
+      At exactly 12:00 UTC on February 6th of 2007, the root servers came under attack from what
+      was eventually hypothesized to be a botnet based somewhere in the South Pacific.
+      While the volume of the attack was significantly lower than that which the system
+      would be subjected to 8 years later, peaking at around 1Gb/sec<a href="#31" class="citation">[31]</a> as opposed to the
+      2015 peak of 35,<a href="#30" class="citation">[30]</a> the hardware and software that comprised root wasn’t as
+      robust as it would later become. Most notably, it had two critical weak points:
+      G-Root and L-Root, run by the DoD and ICANN respectively, as they were the only
+      sites involved in the attack yet to incorporate Anycast. The deluge lasted around
+      two and a half hours; most root sites were able to weather it, but G and L, along with
+      F and M to a lesser extent, were almost entirely crippled, only barely remaining operational.<a href="#31" class="citation">[31]</a>
+      And in all likelihood the damage would have been far greater were it not for the adoption of
+      Anycast following the most catastrophic root attack in the entire three-decade history of the system.
+    </p>
+    <p>
+      The date is October 21st, 2002. The last major change to Root took place just five years ago,
+      with the establishment of M-Root in Japan in early 1997,<a href="#32" class="citation">[32]</a> and the system has only just
+      solidified into its most modern incarnation. And at 5 PM UTC, the root servers were
+      suddenly rocked by an attack that paralyzed them in a way never seen before and not
+      seen again since. The methodology, this time, was considerably different; the 2002 attack,
+      rather than slamming the server inboxes with millions of requests, made a weapon of ICMP.
+      The Internet Control Message Protocol operates on the same layer as protocols like IP,
+      and is conventionally used for simple checks on the status and connectivity of two or
+      more devices in a network. It’s most known for being the protocol used by the ping tool,
+      and most ICMP requests are the equivalent of a simple ‘hi’ in expectance of an equally
+      simple response.<a href="#33" class="citation">[33]</a> Now imagine several thousand ‘hi’s’ every second.
+    </p>
+    <p>
+      This is what each and every root server was suddenly and unceremoniously subjected to that
+      October night, the targets of what’s known as a ‘ping flood’ attack in which hundreds,
+      thousands or even millions of ICMP pings are sent in rapid succession with the goal of
+      jamming a server’s ability to respond. The strike began abruptly and continued for around
+      an hour; reportedly, the highest recorded traffic volume was measured at F-Root, managed
+      by the Internet Systems Consortium, clocking in at around 80 Mb/sec. This was, of course,
+      less than a twelfth of the peak that would be recorded 5 years later, but it was
+      significantly more damaging, as only one of the thirteen servers had even begun to implement
+      Anycast protocols. Throughout the course of the attack, 9 of the 13 root sites were not
+      just slowed, but actually downed for a brief, chaotic moment.<a href="#34" class="citation">[34]</a>  While exact details are hazy,
+      this 2002 metric of round-trip times from the Center for Applied Internet Data Analysis
+      would seem to suggest that only L, I, E and C were able to remain fully active throughout
+      the attack’s duration.<a href="#35" class="citation">[35]</a>
+    </p>
+    <p>
+      Of course, even if all 13 were brought down, it wouldn’t exactly immobilize the internet,
+      at least not completely. Caching saves lives, and in all honestly a number of internet
+      users may not have even noticed. But that doesn’t make it any less astounding that, for
+      a little under an hour on October 22nd, seemingly never to be repeated, the Domain Name
+      System almost ground to a complete halt. Its millions of moving parts, hundreds of servers,
+      scores of behemoth corporate investors and millions of reliant users, for an almost
+      imperceptible moment were very nearly stopped for the first, and only, time. And that,
+      if you’ll excuse me, seems a perfectly reasonable place to end off for the evening.
+    </p>
+    <p>
+      The Domain Name System, like so much of the modern internet, is not perfect. It never
+      really has been, to be entirely honest. But, again, like so much of the internet, it’s
+      just so damn fascinating. It’s a system operating on a scale that was virtually unthinkable
+      just a generation or two ago, and the fact that it’s able to function on this level basically
+      unseen and unknown to the vast majority of its users makes it all the more surreal. Or,
+      who knows; maybe it’s just me. Maybe I’m the only person here who actually thinks any of
+      this stuff is even remotely interesting. But, be that the case, I appreciate it regardless
+      if you’ve stuck around this long and listened to me ramble. And with that, I’ll take my leave.
+      Personally, I don’t have anywhere to be right. But I’m thinking that you might.
+      And even if you don’t, I trust you to find something.
+    </p>
+    <p class="purple-glow hey">
+      Have a good night everybody, and thank you, as always, for watching.
+    </p>
+
+    <div class="citations">
+      <p id="1"><span>1 </span>“The Domain Name System.” ICANN, 13 Sept. 2022, www.icann.org/resources/pages/dns-2022-09-13-en.</p>
+      <p id="2"><span>2 </span>“Network Information Center (NIC).” The History of Domain Names, The History of Domain Names,
+        historyofdomainnames.com/nic-the-history-of-domain-names/. Accessed 26 June 2024. </p>
+      <p id="3"><span>3 </span>“ARPANET, Internet.” LivingInternet, www.livinginternet.com/i/ii_arpanet.htm. Accessed 26 June 2024. </p>
+      <p id="4"><span>4 </span>[RFC1166] Kirkpatrick, S., Stahl, M.K., Recker, M., “Internet Numbers”, RFC 1166, DOI 10.17487/RFC1166, July 1990,
+        &lt;https://www.rfc-editor.org/rfc/rfc1166&gt;</p>
+      <p id="5"><span>5 </span>Metz, Cade. “Why Does the Net Still Work on Christmas? Paul Mockapetris.” Internet Hall of Fame,
+        23 July 2012, www.internethalloffame.org/2012/07/23/why-does-net-still-work-christmas-paul-mockapetris/. </p>
+      <p id="6"><span>6 </span>[RFC608] Kudlick, M.D., “Host Names On-Line”, RFC 608, DOI 10.17487/RFC608, January 1974,
+        &lt;https://www.rfc-editor.org/rfc/rfc608&gt;</p>
+      <p id="7"><span>7 </span>[RFC810] Feinler, E., Harrenstein, K., Su, Z. White, V., “DoD Internet Host Table Specification”,
+        RFC 810, DOI 10.17487/RFC810, March 1982, &lt;https://www.rfc-editor.org/rfc/rfc810&gt;</p>
+      <p id="8"><span>8 </span>[RFC882] Mockapetris, P., “Domain Names – Concepts and Facilities”, RFC 882, DOI 10.17487/RFC882,
+        November 1983, &lt;https://www.rfc-editor.org/rfc/rfc882&gt;</p>
+      <p id="9"><span>9 </span>[RFC920] Postel, J., Reynolds, J., “Domain Requirements”, RFC 920, DOI 10.17487/RFC920, October 1984,
+        &lt;https://www.rfc-editor.org/rfc/rfc920&gt;</p>
+      <p id="10"><span>10 </span>“A Brief History of the DNS and Bind.” A Brief History of the DNS and BIND - BIND 9 9.19.25-Dev Documentation,
+        Internet Systems Consortium, 2023, bind9.readthedocs.io/en/latest/history.html. </p>
+      <p id="11"><span>11 </span>[RFC881] Postel, J., “The Domain Names Plan and Schedule”, RFC 881, DOI 10.17487/RFC881,
+        November 1983, &lt;https://www.rfc-editor.org/rfc/rfc881&gt;</p>
+      <p id="12"><span>12 </span>Lloyd, Samantha. “Behind the Internet: The History of Domain Names.” TechRadar, TechRadar Pro, 13 Aug.
+        2019, www.techradar.com/news/behind-the-internet-the-history-of-domain-names. </p>
+      <p id="13"><span>13 </span>“How Many Tlds Are There? What Are the Types? We Answer Your Common TLD Questions!”
+        Common TLD Questions: How Many TLDs Are There and What Are the Types?, www.dynadot.com/community/blog/
+        how-many-TLDs-are-there-and-what-are-the-types. Accessed 28 June 2024. </p>
+      <p id="14"><span>14 </span>“An In-Depth Guide to Domain Namespace.” An In-Depth Guide to Domain Namespace | Lenovo US,
+        Lenovo, www.lenovo.com/us/en/glossary/domain-namespace/. Accessed 28 June 2024. </p>
+      <p id="15"><span>15 </span>What Is DNS? | How DNS Works | Cloudflare, www.cloudflare.com/learning/dns/what-is-dns/.
+        Accessed 29 June 2024. </p>
+      <p id="16"><span>16 </span>Root Servers, Internet Assigned Numbers Authority, www.iana.org/domains/root/servers.
+        Accessed 29 June 2024. </p>
+      <p id="17"><span>17 </span>Cannon, Robert. “History of DNS.” Cybertelecom, www.cybertelecom.org/dns/history.htm.
+        Accessed 30 June 2024.</p>
+      <p id="18"><span>18 </span>Pershing, Genny. “DNS: ICANN.” Cybertelecom, www.cybertelecom.org/dns/icann.htm.
+        Accessed 1 July 2024. </p>
+      <p id="19"><span>19 </span>“Company Information.” Verisign, www.verisign.com/en_US/company-information/index.xhtml.
+        Accessed 30 June 2024. </p>
+      <p id="20"><span>20 </span>“Welcome to ICANN!” ICANN, 25 Feb. 2012, www.icann.org/resources/pages/welcome-2012-02-25-en.</p>
+      <p id="21"><span>21 </span>What Is a Domain Name Registrar? | Cloudflare, www.cloudflare.com/learning/dns/glossary/
+        what-is-a-domain-name-registrar/. Accessed 1 July 2024. </p>
+      <p id="22"><span>22 </span>Allemann, Andrew. “Domain Auctions and the New TLD Treasure Chest.” Namecheap Blog,
+        30 Sept. 2019, www.namecheap.com/blog/domain-auctions-new-tld-treasure-chest/.</p>
+      <p id="23"><span>23 </span>“Resources for Country Code Managers.” ICANN, 25 Feb. 2012,
+        www.icann.org/resources/pages/cctlds-21-2012-02-25-en. </p>
+      <p id="24"><span>24 </span>Bigelow, Bruce V. “The Untold Story of SAIC, Network Solutions, and the Rise of the
+        Web—Part 1.” Xconomy RSS, Xconomu, 29 July 2009, web.archive.org/web/20090802184435/https://xconomy.com
+        /san-diego/2009/07/29/the-untold-story-of-saic-network-solutions-and-the-rise-of-the-web-part-1/. </p>
+      <p id="25"><span>25 </span>“Top 10 Managed DNS Service Providers in the World Today.” Emergen Research, 2024,
+        www.emergenresearch.com/blog/top-10-managed-dns-service-providers-in-the-world-today. </p>
+      <p id="26"><span>26 </span>Gade, Eric. “Naming the Net: The Domain Name System, 1983-1990.” Gade.Us,
+        May 2011, gade.us/thesis/. </p>
+      <p id="27"><span>27 </span>“Frequently Asked Questions.” GoDaddy Registry Domain Hub, GoDaddy,
+        domains.registry.godaddy/faq. Accessed 2 July 2024. </p>
+      <p id="28"><span>28 </span>“What Are DNS Attacks?” Palo Alto Networks, www.paloaltonetworks.com/cyberpedia/
+        what-is-a-dns-attack. Accessed 3 July 2024. </p>
+      <p id="29"><span>29 </span>Fouchereau, Romain. “2022 Global DNS Threat Report.”
+        International Data Corporation, June 2022. </p>
+      <p id="30"><span>30 </span>Giovane C. M. Moura, Ricardo de O. Schmidt, John Heidemann, Wouter B. de Vries,
+        Moritz Müller, Lan Wei and Christian Hesselman 2016. Anycast vs. DDoS: Evaluating the November 2015 Root
+        DNS Event. Proceedings of the ACM Internet Measurement Conference (Nov. 2016).
+      </p>
+      <p id="31"><span>31 </span>“Factsheet: Root Server Attack on 6 February 2007.” ICANN, 1 Mar. 2007.</p>
+      <p id="32"><span>32 </span>Root Server System Advisory Committee. “RSSAC023v2: History of the Root Server System.”
+        ICANN, 2020. ICANN, https://www.icann.org/en/system/files/files/rssac-023-17jun20-en.pdf</p>
+      <p id="33"><span>33 </span>“Ping (ICMP) Flood Ddos Attack | Cloudflare.” Cloudflare, Cloudflare,
+        www.cloudflare.com/learning/ddos/ping-icmp-flood-ddos-attack/. Accessed 5 July 2024. </p>
+      <p id="34"><span>34 </span>Naraine, Ryan. “Massive DDoS Attack Hit DNS Root Servers.” Internetnews.Com,
+        23 Oct. 2002, www.cs.cornell.edu/people/egs/beehive/rootattack.html. </p>
+      <p id="35"><span>35 </span>“Nameserver Dos Attack October 2002.” CAIDA, CAIDA, 13 May 2008,
+        www.caida.org/projects/dns/oct02dos/#backscatter. </p>
+    </div>
+
+  </main>
+
+  <div class="footer">
+    <p style="text-align:center; font-style: italic;">Site designed with love by Kieran // Last updated February 15, 2025</p>
+    <div class="footer_border"></div>
+  </div>
+
+</body>
+</html>
