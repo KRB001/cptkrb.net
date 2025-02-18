@@ -29,7 +29,16 @@ h3 {
     font-weight: lighter;
     color: white;
     text-align: center;
-    font-size: calc(10px + 1vw);
+    font-size: calc(10px + 0.8vw);
+}
+
+h4 {
+    font-family: "Rockwell", serif;
+    font-weight: lighter;
+    letter-spacing: -0.5px;
+    color: white;
+    text-align: center;
+    font-size: calc(8px + 0.6vw);
 }
 
 p {
@@ -353,8 +362,35 @@ main.doc > div.citations > p > span:first-child {
 
 }
 
+/* Citation Toggle */
+div.citation_toggle_container {
+    position: sticky;
+    top: 30px;
+    width: 95%;
+}
+div.citation_toggle {
+    width: 16%;
+    height: 100%;
+    min-width: 200px;
+    min-height: 75px;
+    border: solid white 2px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: 30px;
+    padding: 5px;
+    padding-bottom: 15px;
+    justify-content: center;
+    text-align: center;
+    opacity: 30%;
+    transition-duration: 0.2s;
+}
 
-/* Custom buttons */
+div.citation_toggle:hover {
+    opacity: 100%;
+}
+
+
+/* ### Custom buttons ### */
 
 button.trinket_button {
     font-family: "Courier New", serif;
@@ -409,6 +445,25 @@ button.download-button:active {
         width: 100%;
     }
 }
+
+button.toggle {
+    font-family: "Courier New", serif;
+    font-weight: bold;
+    background-color: black;
+    color:yellow;
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    border: white solid 2px;
+    cursor: pointer;
+}
+
+button.toggle:hover {
+    color: black;
+    background-color: white;
+}
+
+/* #### Custom Links (<a>) ### */
 
 a.citation {
     vertical-align: super;
