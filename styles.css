@@ -456,11 +456,17 @@ button.toggle {
     width: 100px;
     border: white solid 2px;
     cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 button.toggle:hover {
     color: black;
     background-color: white;
+}
+
+button.toggle:active {
+    background-color: black;
 }
 
 /* #### Custom Links (<a>) ### */
