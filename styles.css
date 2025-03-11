@@ -225,19 +225,19 @@ div.toolbar > ul > li.spacer {
     width:100%;
 }
 
-div.toolbar > ul > li:not(.spacer):not(.spacer-last):hover {
+div.toolbar > ul > li:not(.no-hover):hover {
     background-color: yellow;
     cursor: pointer;
 }
 
-div.toolbar > ul > li:not(.spacer):not(.spacer-last):hover > p {
+div.toolbar > ul > li:not(.no-hover):hover > p {
     color: black;
 }
 
 div.toolbar > ul > li > .dropdown {
     display: none;
     position: absolute;
-    left: -2px;
+    left: 2px;
     background-color: black;
     min-width: 15%;
     border: 2px white double;
