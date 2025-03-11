@@ -1,5 +1,7 @@
 .DS_Store
 .idea
 
+testing.html
+
 music-files/*
 !music-files/manifest.txt

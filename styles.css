@@ -8,6 +8,8 @@ body {
     padding: 0;
 }
 
+
+
 /* Major inline elements */
 
 h1 {
@@ -67,6 +69,8 @@ a {
     text-shadow: 0px 0px 5px magenta;
 }
 
+
+
 /* Main 'boxes' for most pages */
 
 main.in_progress {
@@ -94,6 +98,8 @@ main.doc {
     border: double white 4px;
     background-color: black;
 }
+
+
 
 /* Useful divs */
 
@@ -136,6 +142,54 @@ div.footer_border {
     margin: 10px 0 10px 0;
 }
 
+
+
+/* Toolbar */
+
+div.toolbar {
+    width: 95%;
+    margin: 10px auto auto auto;
+    background-color: black;
+    border: 2px white double;
+    position: sticky;
+    top: 20px;
+}
+
+div.toolbar > ul {
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.toolbar > ul > li {
+    text-align: center;
+    align-content: center;
+    border-right: solid white 1px;
+    padding: 0;
+    width:100%;
+    line-height: 0.05em;
+}
+
+div.toolbar > ul > li.spacer {
+    text-align: left;
+    border:none;
+    width:100%;
+}
+
+div.toolbar > ul > li:not(.spacer):hover {
+    background-color: yellow;
+}
+
+div.toolbar > ul > li:not(.spacer):hover > p {
+    color: black;
+}
+
+
+
 /* Specific images that may be reused (some of these may be deleted soon-ish if they prove unnecessary) */
 
 img.logo {
@@ -161,6 +215,11 @@ img.icon_small {
     display: inline-block;
 }
 
+
+
+
+
+
 /* #### Lists #### */
 
 /* Music List */
@@ -179,6 +238,10 @@ ul.music_list > li {
     align-items: center;
     display:flex;
 }
+
+
+
+
 /* Small screens only */
 @media only screen and (max-width: 1040px){
     ul.music_list > li {
@@ -204,6 +267,9 @@ ul.music_list > li > ul {
     margin: 0;
 }
 
+
+
+
 /* Small screens only */
 @media only screen and (max-width: 1040px){
     ul.music_list > li > ul {
@@ -217,6 +283,9 @@ ul.music_list > li > ul > li {
     border-right: solid white 2px;
     width:100%;
 }
+
+
+
 
 /* Small screens only */
 @media only screen and (max-width: 1040px){
@@ -249,6 +318,8 @@ ul.music_list > li > ul > li:last-child {
     text-align: center;
     border-right: none;
 }
+
+
 
 
 /* Docs List */
@@ -313,6 +384,8 @@ ul.docs_list > li > ul > li > p {
     text-overflow: ellipsis;
 }
 
+
+
 /* ### Formatting for Docs ### */
 
 main.doc > h1 {
@@ -362,6 +435,8 @@ main.doc > div.citations > p > span:first-child {
 
 }
 
+
+
 /* Citation Toggle */
 div.citation_toggle_container {
     position: sticky;
@@ -388,6 +463,7 @@ div.citation_toggle {
 div.citation_toggle:hover {
     opacity: 100%;
 }
+
 
 
 /* ### Custom buttons ### */
@@ -469,6 +545,8 @@ button.toggle:active {
     background-color: black;
 }
 
+
+
 /* #### Custom Links (<a>) ### */
 
 a.citation {
@@ -484,6 +562,8 @@ a.citation:hover {
     text-shadow: 0px 0px 5px red;
     transition-duration: 0.2s;
 }
+
+
 
 /* Specialty / Utility */
 
