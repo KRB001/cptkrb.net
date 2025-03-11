@@ -1,5 +1,21 @@
 /* WIP Main Stylesheet for CPTKRB.net */
 
+/* TABLE OF CONTENTS
+    0. body - universal <body> style unless specified inline
+    1. major inline elements - <h1>, <h2>, <p> etc.
+    2. main boxes - <main> elements for most pages
+    3. useful divs - variety of <div> elements
+    4. unique elements - each subcategory is a collection of styles for a particular site element with multiple parts
+        4a. toolbar - sticky toolbar at the top of (most) pages
+        4b. music list - full list of music on music page
+        4c. docs list - full list of docs on docs page
+            4c1. formatting for individual docs - all styles for docs pages
+    5. specific images - unique formatting for certain images that may recur
+    6. custom buttons - exactly what it says on the tin
+    7. custom links - same as above, but for links
+    8. specialty/utility - miscellaneous bin
+ */
+
 body {
     background-color: black;
     background-image: url("resources/stars_bg.gif");
@@ -10,7 +26,13 @@ body {
 
 
 
-/* Major inline elements */
+
+
+
+
+/* ##################################### */
+/* ####### Major inline elements ####### */
+/* ##################################### */
 
 h1 {
     font-family: "Courier New", sans-serif;
@@ -71,7 +93,13 @@ a {
 
 
 
-/* Main 'boxes' for most pages */
+
+
+
+
+/* ########################################### */
+/* ####### Main 'boxes' for most pages ####### */
+/* ########################################### */
 
 main.in_progress {
     width: 40%;
@@ -101,7 +129,12 @@ main.doc {
 
 
 
-/* Useful divs */
+
+
+
+/* ########################### */
+/* ####### Useful divs ####### */
+/* ########################### */
 
 div.spacer {
     margin: 20%;
@@ -144,7 +177,19 @@ div.footer_border {
 
 
 
-/* Toolbar */
+
+
+
+
+
+/* ############################### */
+/* ####### Unique elements ####### */
+/* ############################### */
+
+
+
+
+/* ##### Toolbar ##### */
 
 div.toolbar {
     width: 95%;
@@ -180,12 +225,12 @@ div.toolbar > ul > li.spacer {
     width:100%;
 }
 
-div.toolbar > ul > li:not(.spacer):hover {
+div.toolbar > ul > li:not(.spacer):not(.spacer-last):hover {
     background-color: yellow;
     cursor: pointer;
 }
 
-div.toolbar > ul > li:not(.spacer):hover > p {
+div.toolbar > ul > li:not(.spacer):not(.spacer-last):hover > p {
     color: black;
 }
 
@@ -227,39 +272,10 @@ div.toolbar > ul > li:hover > .dropdown > ul > li:hover > p {
 }
 
 
-/* Specific images that may be reused (some of these may be deleted soon-ish if they prove unnecessary) */
-
-img.logo {
-    width: 70%;
-    margin: auto;
-    display: block;
-}
-
-img.loading {
-    width:100%;
-    margin: auto;
-    display: block;
-}
-
-img.button {
-    margin: 5px;
-    height: 45px;
-    width: auto;
-}
-
-img.icon_small {
-    height: 50px;
-    display: inline-block;
-}
 
 
+/* ##### Music List ##### */
 
-
-
-
-/* #### Lists #### */
-
-/* Music List */
 ul.music_list {
     list-style-type: none;
     padding: 0;
@@ -275,7 +291,6 @@ ul.music_list > li {
     align-items: center;
     display:flex;
 }
-
 
 
 
@@ -359,7 +374,7 @@ ul.music_list > li > ul > li:last-child {
 
 
 
-/* Docs List */
+/* ##### Docs List ##### */
 
 ul.docs_list {
     list-style-type: none;
@@ -423,7 +438,7 @@ ul.docs_list > li > ul > li > p {
 
 
 
-/* ### Formatting for Docs ### */
+/* ### Formatting for Individual Docs ### */
 
 main.doc > h1 {
     font-family: "Courier New", sans-serif;
@@ -474,6 +489,39 @@ main.doc > div.citations > p > span:first-child {
 
 
 
+
+
+
+
+/* ################################################## */
+/* ####### Specific images that may be reused #######
+/* (some of these may be deleted soon-ish if they prove unnecessary) */
+/* ################################################## */
+
+img.logo {
+    width: 70%;
+    margin: auto;
+    display: block;
+}
+
+img.loading {
+    width:100%;
+    margin: auto;
+    display: block;
+}
+
+img.button {
+    margin: 5px;
+    height: 45px;
+    width: auto;
+}
+
+img.icon_small {
+    height: 50px;
+    display: inline-block;
+}
+
+
 /* Citation Toggle */
 div.citation_toggle_container {
     position: sticky;
@@ -503,7 +551,12 @@ div.citation_toggle:hover {
 
 
 
-/* ### Custom buttons ### */
+
+
+
+/* ############################## */
+/* ####### Custom buttons ####### */
+/* ############################## */
 
 button.trinket_button {
     font-family: "Courier New", serif;
@@ -584,7 +637,13 @@ button.toggle:active {
 
 
 
-/* #### Custom Links (<a>) ### */
+
+
+
+/* ################################## */
+/* ####### Custom Links (<a>) ####### */
+/* ################################## */
+
 
 a.citation {
     vertical-align: super;
@@ -602,7 +661,16 @@ a.citation:hover {
 
 
 
+
+
+
+
 /* Specialty / Utility */
+
+::selection {
+    color: black;
+    background-color: white;
+}
 
 .construction span {
     color: darkgray;
@@ -612,11 +680,6 @@ a.citation:hover {
 .construction span:nth-of-type(even) {
     color: yellow;
     text-shadow: -2px 2px gray;
-}
-
-::selection {
-    color: black;
-    background-color: white;
 }
 
 .caesar-box {
