@@ -182,12 +182,49 @@ div.toolbar > ul > li.spacer {
 
 div.toolbar > ul > li:not(.spacer):hover {
     background-color: yellow;
+    cursor: pointer;
 }
 
 div.toolbar > ul > li:not(.spacer):hover > p {
     color: black;
 }
 
+div.toolbar > ul > li > .dropdown {
+    display: none;
+    position: absolute;
+    left: -2px;
+    background-color: black;
+    min-width: 15%;
+    border: 2px white double;
+    z-index: 1;
+}
+
+div.toolbar > ul > li:hover > .dropdown {
+    display: block;
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul {
+    padding: 0;
+
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul > li {
+    border-bottom: solid white 1px;
+    text-align: left;
+    width:100%;
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul > li:last-child {
+    border-bottom: none;
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul > li > p {
+    margin-left: 10px;
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul > li:hover > p {
+    color: orange;
+}
 
 
 /* Specific images that may be reused (some of these may be deleted soon-ish if they prove unnecessary) */
