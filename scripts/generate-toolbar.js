@@ -14,7 +14,7 @@ function loadFile(filePath) {
 const spacers = 5;
 
 // parse widgets json
-let widgets = JSON.parse(loadFile("toolbarWidgets.json")).widgets
+let widgets = JSON.parse(loadFile("/toolbarWidgets.json")).widgets
 
 // create toolbar object
 let toolbarList = document.createElement('ul');
@@ -26,7 +26,7 @@ toolbar.setAttribute("class", "toolbar");
 let logoWidget = document.createElement("li");
 let logo = document.createElement('img');
 logoWidget.appendChild(logo);
-logo.setAttribute("src", "resources/site_logo.webp");
+logo.setAttribute("src", "/resources/site_logo.webp");
 logo.setAttribute("style", "width:100%; max-width: 100px");
 logoWidget.setAttribute("class", "no-hover");
 toolbarList.appendChild(logoWidget);

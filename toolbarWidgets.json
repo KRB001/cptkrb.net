@@ -1,18 +1,18 @@
 {
   "widgets": [
     {
-      "name": "home", "path": "index.html",
+      "name": "home", "path": "/index.html",
       "subwidgets": []
     },
     {
-      "name": "about", "path": "about.html",
+      "name": "about", "path": "/about.html",
       "subwidgets": []
     },
     {
       "name": "resources", "path": "",
       "subwidgets": [
-        {"name": "music", "path":  "music.html"},
-        {"name": "documents", "path":  "docs/docs_main.html"}
+        {"name": "music", "path":  "/music.html"},
+        {"name": "documents", "path":  "/docs/docs_main.html"}
       ]
     },
     {
