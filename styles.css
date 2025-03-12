@@ -230,7 +230,16 @@ div.toolbar > ul > li:not(.no-hover):hover {
     cursor: pointer;
 }
 
+div.toolbar > ul > li > a {
+    text-decoration: none;
+    text-shadow: none;
+}
+
 div.toolbar > ul > li:not(.no-hover):hover > p {
+    color: black;
+}
+
+div.toolbar > ul > li:not(.no-hover):hover > a > p {
     color: black;
 }
 
@@ -263,11 +272,16 @@ div.toolbar > ul > li:hover > .dropdown > ul > li:last-child {
     border-bottom: none;
 }
 
-div.toolbar > ul > li:hover > .dropdown > ul > li > p {
+div.toolbar > ul > li:hover > .dropdown > ul > li > a {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+div.toolbar > ul > li:hover > .dropdown > ul > li > a > p {
     margin-left: 10px;
 }
 
-div.toolbar > ul > li:hover > .dropdown > ul > li:hover > p {
+div.toolbar > ul > li:hover > .dropdown > ul > li:hover > a > p {
     color: orange;
 }
 

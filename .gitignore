@@ -2,6 +2,7 @@
 .idea
 
 testing.html
+testing2.html
 
 music-files/*
 !music-files/manifest.txt
