@@ -11,6 +11,8 @@ function loadFile(filePath) {
 }
 
 
+const spacers = 5;
+
 // parse widgets json
 let widgets = JSON.parse(loadFile("toolbarWidgets.json")).widgets
 
@@ -68,7 +70,7 @@ for (let i = 0; i < widgets.length; i++){
         }
 
         // set offset of dropdown so it lines up with widget
-        let offset = "left: " + ((100 / (widgets.length + 5)) * (i + 1)).toString() + "%;"
+        let offset = "left: " + ((100 / (widgets.length + spacers + 1)) * (i + 1)).toString() + "%;"
         dropdown.setAttribute("style", offset);
 
         widget.appendChild(dropdown);
@@ -80,10 +82,14 @@ for (let i = 0; i < widgets.length; i++){
 }
 
 // append empty space for toolbar aesthetics
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < spacers; i++){
     let spacer = document.createElement("li");
     spacer.setAttribute("class", "spacer no-hover")
     toolbarList.appendChild(spacer);
 }
 
-document.getElementsByClassName("with-toolbar").item(0).appendChild(toolbar);
+try {
+    document.getElementsByClassName("with-toolbar").item(0).appendChild(toolbar);
+} catch (TypeError) {
+
+}

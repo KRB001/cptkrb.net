@@ -24,6 +24,10 @@ body {
     padding: 0;
 }
 
+body.with-toolbar {
+    margin-top: 50px;
+}
+
 
 
 
