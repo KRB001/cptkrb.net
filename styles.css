@@ -117,17 +117,17 @@ main.in_progress {
 main.index-box {
     width: 65%;
     margin: 6% auto auto auto;
-    background-color: blue;
+    display: flex;
 }
 
 main.index {
-    width: 70%;
+    width: 73%;
     min-width: 300px;
     margin: auto auto auto 0%;
     border: double white 2px;
     background-color: black;
     justify-content: center;
-    padding: 0 4px 0 4px;
+    padding: 0 1px 0 1px;
 }
 
 main.large {
@@ -198,9 +198,14 @@ div.footer_border {
 div.index-block {
     height: 180px;
     width: 100%;
-    background-color: red;
-    margin: 4px auto 4px auto;
+    margin: 2px auto 2px auto;
     display: flex;
+}
+
+div.index-section {
+    border: solid white 1px;
+    padding: 2px;
+    margin: 0 1px 0 1px;
 }
 
 
