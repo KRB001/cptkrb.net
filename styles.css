@@ -580,6 +580,24 @@ main.doc > div.citations > p > span:first-child {
 
 
 
+/* ### Site Updates Scroll ### */
+
+p.update-date {
+    padding-left: 16px;
+    margin-bottom: 4px;
+    color: lime;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+p.update-content {
+    padding-left: 16px;
+    margin-top: 6px;
+    color: yellowgreen;
+}
+
+
+
 
 
 
@@ -793,4 +811,12 @@ a.citation:hover {
     padding: 12px;
     border: double white 4px;
     background-color: black;
+}
+
+#site-updates {
+    opacity: 25%;
+}
+
+#site-updates:hover {
+    opacity: 100%;
 }
