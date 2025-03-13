@@ -14,7 +14,7 @@ function loadFile(filePath) {
 const spacers = 5;
 
 // parse widgets json
-let widgets = JSON.parse(loadFile("/toolbarWidgets.json")).widgets
+let widgets = JSON.parse(loadFile("/sitedata/toolbarWidgets.json")).widgets
 
 // create toolbar object
 let toolbarList = document.createElement('ul');

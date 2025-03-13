@@ -114,6 +114,22 @@ main.in_progress {
     background-color: black;
 }
 
+main.index-box {
+    width: 65%;
+    margin: 6% auto auto auto;
+    background-color: blue;
+}
+
+main.index {
+    width: 70%;
+    min-width: 300px;
+    margin: auto auto auto 0%;
+    border: double white 2px;
+    background-color: black;
+    justify-content: center;
+    padding: 0 4px 0 4px;
+}
+
 main.large {
     width: 80%;
     min-width: 600px;
@@ -179,7 +195,13 @@ div.footer_border {
     margin: 10px 0 10px 0;
 }
 
-
+div.index-block {
+    height: 180px;
+    width: 100%;
+    background-color: red;
+    margin: 4px auto 4px auto;
+    display: flex;
+}
 
 
 
