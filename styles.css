@@ -80,19 +80,65 @@ p.note {
     text-decoration: underline;
 }
 
+p.subtitle {
+    font-style: italic;
+    color: yellow;
+    text-align: center;
+}
+
+p.splash {
+    padding: 10% 30px 0 30px;
+    display: block;
+    font-family: "Courier New", serif;
+    font-size: 1.2vw;
+    font-style: italic;
+    text-align: center;
+}
+
 p.important {
     font-weight: bold;
     text-decoration: underline;
 }
 
 a {
+    font-family: "Arial", sans-serif;
     color: yellow;
     text-shadow: -1px 1px white;
+}
+
+a.quicklink {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: max(1.2vw, 12px)
+}
+
+a.quicklink:hover {
+    text-decoration: underline;
+}
+
+a.youtube {
+    color: red;
+    text-shadow: -1px 1px darkred;
+}
+
+a.bandcamp {
+    color: deepskyblue;
+    text-shadow: -1px 1px royalblue;
+}
+
+a.merch {
+    color: mediumpurple;
+    text-shadow: -1px 1px purple;
 }
 
 .purple-glow {
     color: mediumorchid;
     text-shadow: 0px 0px 5px magenta;
+}
+
+.center-pad {
+    text-align: center;
+    padding: 2px 8px 2px 8px;
 }
 
 
@@ -544,7 +590,7 @@ main.doc > div.citations > p > span:first-child {
 /* ################################################## */
 
 img.logo {
-    width: 70%;
+    width: 90%;
     margin: auto;
     display: block;
 }
@@ -564,6 +610,18 @@ img.button {
 img.icon_small {
     height: 50px;
     display: inline-block;
+}
+
+img.icon_small_variant {
+    width: 60%;
+    margin: 10px auto 0 auto;
+    display: block;
+}
+
+img.icon_full {
+    width: 100%;
+    display: block;
+    margin: 20% auto 20% auto;
 }
 
 
