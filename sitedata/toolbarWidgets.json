@@ -6,7 +6,10 @@
     },
     {
       "name": "about", "path": "/about.html",
-      "subwidgets": []
+      "subwidgets": [
+        {"name": "about the site", "path": "/about.html"},
+        {"name": "about me", "path": "/about_me.html"}
+      ]
     },
     {
       "name": "resources", "path": "",

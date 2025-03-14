@@ -814,7 +814,8 @@ a.citation:hover {
 }
 
 #site-updates {
-    opacity: 25%;
+    opacity: 35%;
+    transition-duration: 0.1s;
 }
 
 #site-updates:hover {
