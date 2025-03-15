@@ -49,7 +49,7 @@ h2 {
     font-family: "Courier New", sans-serif;
     color: white;
     text-align: center;
-    font-size: calc(12px + 1vw);
+    font-size: calc(16px + 1vw);
 }
 
 h3 {
@@ -57,7 +57,7 @@ h3 {
     font-weight: lighter;
     color: white;
     text-align: center;
-    font-size: calc(10px + 0.8vw);
+    font-size: calc(12px + 0.8vw);
 }
 
 h4 {
@@ -66,7 +66,7 @@ h4 {
     letter-spacing: -0.5px;
     color: white;
     text-align: center;
-    font-size: calc(8px + 0.6vw);
+    font-size: calc(10px + 0.7vw);
 }
 
 p {
@@ -131,6 +131,11 @@ a.merch {
     text-shadow: -1px 1px purple;
 }
 
+span.aside {
+    font-style: italic;
+    color: yellow;
+}
+
 .purple-glow {
     color: mediumorchid;
     text-shadow: 0px 0px 5px magenta;
@@ -181,6 +186,15 @@ main.large {
     min-width: 600px;
     margin: 2% auto 2% auto;
     border: double white 4px;
+    background-color: black;
+}
+
+main.full {
+    width: 94%;
+    min-width: 600px;
+    margin: 2% auto 2% auto;
+    border: double white 4px;
+    padding: 25px;
     background-color: black;
 }
 
@@ -254,6 +268,13 @@ div.index-section {
     margin: 0 1px 0 1px;
 }
 
+div.notice {
+    width: 90%;
+    margin: 20px auto auto auto;
+    height: 100px;
+    border: 4px double red;
+}
+
 
 
 
@@ -275,6 +296,7 @@ div.toolbar {
     border: 2px white double;
     position: sticky;
     top: 20px;
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.6);
 }
 
 div.toolbar > ul {
@@ -328,6 +350,7 @@ div.toolbar > ul > li > .dropdown {
     min-width: 15%;
     border: 2px white double;
     z-index: 1;
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.6);
 }
 
 div.toolbar > ul > li:hover > .dropdown {
@@ -336,7 +359,7 @@ div.toolbar > ul > li:hover > .dropdown {
 
 div.toolbar > ul > li:hover > .dropdown > ul {
     padding: 0;
-
+    list-style-type: none;
 }
 
 div.toolbar > ul > li:hover > .dropdown > ul > li {
@@ -599,6 +622,69 @@ p.update-content {
 
 
 
+/* ### About Me ### */
+p.about-me {
+    text-align: left;
+    font-family: Rockwell, serif;
+    margin: 10px auto auto 0px;
+}
+
+p.about-me > span.row {
+    font-weight: bold;
+    color: gold;
+    text-decoration: underline;
+}
+
+p.about-me > span.entry {
+    color: yellow;
+}
+
+div.about-lists {
+    width: 100%;
+    display: flex;
+}
+
+div.about-lists > div.about-list {
+    margin: 0 20px auto 20px;
+    width: 100%;
+    padding-right: 30px;
+}
+
+div.about-lists > div.about-list > ul{
+    width: 100%;
+    border: 1px white solid;
+    padding: 15px;
+}
+
+div.about-lists > div.about-list > ul > li {
+    font-family: "Arial", sans-serif;
+    color: violet;
+    font-size: 16px;
+    padding-bottom: 5px;
+    list-style-type: none;
+}
+
+div.about-lists > div.about-list > ul > li::before {
+    content: ">> ";
+    color: white;
+}
+
+div.about-lists > div.about-list > ul > li > ul{
+    width: 100%;
+    padding-left: 18px;
+    list-style-type: none;
+}
+
+div.about-lists > div.about-list > ul > li > ul > li {
+    color: plum;
+}
+
+div.about-lists > div.about-list > ul > li > ul > li::before {
+    content: "> ";
+    color: white;
+}
+
+
 
 
 
@@ -820,4 +906,19 @@ a.citation:hover {
 
 #site-updates:hover {
     opacity: 100%;
+}
+
+.asterisk > .tooltip {
+    visibility: hidden;
+    background-color: black;
+    text-align: center;
+    padding: 5px 0;
+    border: 1px white solid;
+    position: absolute;
+    z-index: 1;
+    left: 10%;
+}
+
+.asterisk:hover > .tooltip {
+    visibility: visible;
 }

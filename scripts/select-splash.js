@@ -28,6 +28,7 @@ if(splashes[splashIndex].link !== ""){
 
     link = document.createElement("a");
     link.setAttribute("href", splashes[splashIndex].link);
+    link.setAttribute("target", "_blank");
 
     splashElement.appendChild(link);
     splashElement = link;

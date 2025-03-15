@@ -20,7 +20,10 @@
     },
     {
       "name": "misc", "path": "",
-      "subwidgets": []
+      "subwidgets": [
+        {"name": "old index", "path":  "/old/index_old.html"},
+        {"name": "all links", "path":  "links.html"}
+      ]
     }
   ]
 }
