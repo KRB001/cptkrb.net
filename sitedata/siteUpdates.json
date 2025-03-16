@@ -1,8 +1,8 @@
 [
-  {"date": "08/12/2024", "content": "[ version 0.1] Site has officially been launched! Currently super super under construction, gna be working on things over the next few months"},
+  {"date": "08/12/2024", "content": "[ version 0.1 ] Site has officially been launched! Currently super super under construction, gna be working on things over the next few months"},
   {"date": "08/15/2024", "content": "Temporary music page set up at /music.html, more music to come"},
   {"date": "02/15/2025", "content": "Been a while!! Set up a new docs page at /docs/docs_main.html. Here you can find documents of all sorts, usually pertaining to videos"},
   {"date": "02/18/2025", "content": "Small quality of life thingy, citations on document pages can now be toggled on and off"},
-  {"date": "03/12/2025", "content": "[ version 0.2] We have a toolbar! Toolbar will be availible on pretty much every page except index for the forseeable future and is managed by a script and json file for easy updates"},
-  {"date": "03/15/2025", "content": "Version 1.0, the site is no longer under construction!!! Well, it technically is, but for the time being we have a proper index page, some about pages, a working toolbar and much more. More work to come!"}
+  {"date": "03/12/2025", "content": "[ version 0.2 ] We have a toolbar! Toolbar will be availible on pretty much every page except index for the forseeable future and is managed by a script and json file for easy updates"},
+  {"date": "03/16/2025", "content": "[ version 1.0 ] The site is no longer under construction!!! Well, it technically is, but for the time being we have a proper index page, some about pages, a working toolbar and much more. More work to come!"}
 ]
