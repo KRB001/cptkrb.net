@@ -95,11 +95,6 @@ p.splash {
     text-align: center;
 }
 
-p.important {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
 a {
     font-family: "Arial", sans-serif;
     color: yellow;
@@ -134,6 +129,11 @@ a.merch {
 span.aside {
     font-style: italic;
     color: yellow;
+}
+
+.important {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .purple-glow {
@@ -664,6 +664,12 @@ div.about-lists > div.about-list > ul > li {
     list-style-type: none;
 }
 
+/* for list of 'done' things */
+div.about-lists > div.about-list > ul.done > li {
+    color: grey;
+    text-decoration: line-through;
+}
+
 div.about-lists > div.about-list > ul > li::before {
     content: ">> ";
     color: white;
@@ -964,5 +970,26 @@ a.citation:hover {
 }
 
 .asterisk:hover > .tooltip {
+    visibility: visible;
+}
+
+.tooltip-inline {
+    position: relative;
+}
+
+.tooltip-inline > span {
+    background-color: black;
+    text-align: center;
+    top: 1.5em;
+    left: -50px;
+    width: 15vw;
+    padding: 5px;
+    border: 1px white solid;
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    visibility: hidden;
+}
+
+.tooltip-inline:hover > span {
     visibility: visible;
 }

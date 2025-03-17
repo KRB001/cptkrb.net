@@ -2,9 +2,341 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="description" content="Everything you've ever wanted to know about the site!">
+    <meta name="author" content="Kieran">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the site!</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
+<body class="with-toolbar">
+    <script type="text/javascript" src="scripts/generate-toolbar.js"></script>
+    <h1>About the Site</h1>
+    <main class="full" style="padding-top: 10px; padding-bottom: 20px; background-image: url(resources/links-bg-faint.webp)">
+        <h3 style="text-align: left">Quick Navigation</h3>
+        <a href="#intro">An introduction</a>
+        <br>
+        <a href="#why">Why does this place exist?</a>
+        <br>
+        <a href="#goals">Some site goals</a>
+        <br>
+        <a href="#how">How the site works (and how I want it to work)</a>
+        <br>
+        <a href="#todo">TODO</a>
+        <br>
+        <a href="#conclusion">Conclusion</a>
+        <br>
+    </main>
+    <main class="full">
+        <div style="width: 100%; display: flex;">
+            <img src="resources/site_logo.webp" alt="Site logo" style="margin: 20px auto 0 auto; width: 40%;">
+        </div>
+        <h4 style="margin: 0; color: yellow; font-style: italic; padding-bottom: 20px;">A website made with love by Kieran</h4>
+        <hr>
+        <h4 style="text-align: left;" id="intro">An introduction</h4>
+        <p>
+            <span class="important">Hi, and welcome to my site!</span>
+            www.cptkrb.net (stylized <span style="color: red; margin:0;">C</span><span style="color: orange;">P</span><span style="color: yellow;">T</span><span style="color: lime;">K</span><span style="color: deepskyblue;">R</span><span style="color: magenta;">B</span>.net)
+            is a website originally created by <a href="about_me.html">me</a> in August of 2024. Since that time, when I
+            have the time, I've been making periodic updates and additions to develop this site into my own small place
+            on the internet, since I feel we really don't have too many of those anymore. I think it'd best be described
+            as a
+            <span class="important tooltip-inline">
+                personal site
+                <span style="font-weight: normal">I was gonna link to a wikipedia page for this but I think you get the gist</span>
+            </span>,
+            a concept that flourished in the early modern web era, bolstered
+            by services like
+            <span class="tooltip-inline">
+                <a href="https://www.angelfire.lycos.com/" target="_blank" style="color:crimson">Angelfire</a>,
+                <span>still exists!</span>
+            </span>
+            <span class="tooltip-inline">
+                <a href="https://www.tripod.lycos.com/" target="_blank" style="color:forestgreen">Tripod</a>
+                <span>also owned by lycos, but thats been the case since time immemorial</span>
+            </span> and
+            <span class="tooltip-inline">
+                <a href="https://neocities.org/" target="_blank" style="color:dodgerblue">GeoCities</a>,
+                <span>gone, but check out Neocities!</span>
+            </span>
+            but has since been under the heel of social media megaconglomorates doing their best to snuff this form of
+            expression out. Personal sites were made for all manner of reasons, and CPTKRB.net is no different; while
+            I'll obviously maintain my present social media, I really wanna build this site into a home. For the time
+            being, and likely for the forseeable future, there won't really be a singular goal for this place. Rather,
+            I'll just use it to share things I've made, try out new ideas, and exist online in much the same way I do
+            in reality.
+        </p>
+        <h4 style="text-align: left; margin-top: 45px;" id="why">
+            Why does this place exist?
+        </h4>
+        <div style="display: flex">
+            <div style="width: 70%">
+                <p>
+                    As stated above, I created CPTKRB.net largely out of a desire to have a place where I can share things and
+                    express myself outside the bounds established by modern social media-adjacent sites. I like to do a lot of
+                    different things, and there's only so far you can go with blogposting and video streaming. There's such a
+                    massive breadth of things available to create and explore today that just don't quite fit into any of the
+                    established commercial molds. With CPTKRB.net, I own the domain, I write all the pages and program all the
+                    systems, and hopefully soon I'll manage the physical servers as well <span class="aside">(see below :3)</span>.
+                    So, if I need a place to
+                    <a href="music.html">share free music downloads</a>, host
+                    <a href="docs/docs_main.html">scripts I've written</a>,
+                    showcase art and computer projects I've been working on, or just share my thoughts, I'll have a home base to do it.
+                </p>
+                <p>
+                    In addition to this, I also kinda just want CPTKRB.net to be something like a web representation of me; I
+                    want to be able to share who I am, the things I'm passionate about and the things that give my life meaning,
+                    spread across a digital canvas for other travellers to see. The closer I can get this site to expressing
+                    who I am, the happier I'll be with it :)
+                </p>
+                <p>
+                    I'm <span class="aside">(hopefully)</span> always adding new stuff,
+                    <span class="important tooltip-inline">
+                        improving on old stuff
+                        <span style="font-weight: normal">full mobile support coming soon!</span>
+                    </span>,
+                    and developing the site in any way I can. I want this place to be dynamic and ever-changing, and
+                    suggestions are always welcomed <span class="aside">(within reason)</span>.
+                </p>
+            </div>
+            <div style="width: 30%; padding: 0 10px 0 5%;">
+                <img src="resources/index-html-snapshot-3-16.webp" alt="A snapshot of the HTML document for this site's index page"
+                style="width:100%; border: 2px double white;">
+                <p class="note" style="text-align: center">
+                    the DNA of the site
+                </p>
+            </div>
+        </div>
+        <h4 style="text-align: left; margin-top: 45px;" id="goals">
+            Some site goals
+        </h4>
+        <p>
+            I think it'd be good to have a couple core tenets/principles/goals/whatever for the site to abide by while
+            I'm developing it. Some of these will be more moral and some more utilitarian, but I'll do my best to
+            adhere to them as well as I can. Here's a few to start with, although more can certainly be added in the future.
+        </p>
+        <div class="about-lists">
+            <div class="about-list">
+                <ul>
+                    <li style="font-weight: bold">
+                        Always Free
+                        <ul style="font-weight: normal">
+                            <li>
+                                Everything on this main section of the site will be completely free to use and explore, forever
+                            </li>
+                            <li>
+                                Future sections of the site, which may be more specialized, might have small features
+                                like banner ads if needed but nothing obstructive or prohibiting
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="font-weight: bold">
+                        No Single Focus
+                        <ul style="font-weight: normal">
+                            <li>
+                                I don't want this site to be about just one thing! There'll always be variety here :)
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="font-weight: bold">
+                        New Stuff
+                        <ul style="font-weight: normal">
+                            <li>
+                                There will always be new things on the site to explore
+                            </li>
+                            <li>
+                                The rate at which these things come might vary for a variety of reasons, but as long
+                                as I'm actively interested in the site I'll keep developing and improving it
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="font-weight: bold">
+                        Having Fun
+                        <ul style="font-weight: normal">
+                            <li>
+                                It sounds silly, but I really only want to keep working on this site as long as I enjoy doing it
+                            </li>
+                            <li>
+                                If ever I stop having passion for CPTKRB.net, I'll probably wind down activity on it
+                            </li>
+                            <li>
+                                However, no matter what, the site will always be availibe even if I'm no longer maintaining it
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h4 style="text-align: left; margin-top: 45px;" id="how">
+            How the site works (and how I want it to work)
+        </h4>
+        <p>
+            The inner workings of CPTKRB.net, at the moment, are actually pretty simple.
+            I own the domain <span class="important">cptkrb.net</span> and all of its subdomains and manage them
+            through Route53 <span class="aside">(originally GoDaddy)</span>. The site also uses a Cloudfront distribution,
+            for which I'm appreciative but also slightly annoyed by since it means I have to invalidate the cache every
+            time I push new changes so I don't have to wait 6 hours for it to auto-refresh. Argh. The site is currently a
+            <span class="important">static site</span>, meaning it consists of a set of HTML documents styled with
+            CSS stylesheets hosted on a webserver somewhere. Your browser shoots off a request to the server, and you're
+            promptly served a flat HTML doc <span class="aside">(this site!)</span>.
+            Here and there I've written a bit of JavaScript for some of the site's more interactive elements, but overall
+            this is something you could download onto your machine and run without much trouble, provided you also got
+            all the site resources and JSONs and such. Said files are hosted remotely in an S3 bucket configured to
+            operate as a webserver. The AWS synchronicity at play here is largely an effect of me being strapped for
+            time and resources.
+        </p>
+        <p>
+            To put it simply, <span class="important">I want to change this !!!</span> While the current setup is fine
+            insomuch as it can support the simple stuff I'm currently using it for, there's so much more that I want to
+            do with this site!
+        </p>
+        <p>
+            <span class="important" style="color: magenta">Firstly,</span>
+            I want to expand the site's functionality dramatically by implementing backend-frontend architecture. This
+            way, I'll be able to provide capabilities that a flat site can't, and I'll be able to run host-side services
+            and maintain a local database so the site can actually remember things
+            <span class="aside">
+                (I really really really want to have some sort of forum system by the end of the year :3)
+            </span>
+        </p>
+        <div style="display: flex; margin-top: 0; padding: 0;">
+            <div style="width: 70%;  margin-top: 0; padding: 0;">
+                <p>
+                    <span class="important" style="color: magenta; margin-top: 0;">Secondly,</span>
+                    I want to have my own physical server! Currently, and as stated above, the entire site consists of
+                    a file structure hosted on some unknown VM in an Amazon server center somewhere. This is not ideal,
+                    and is only really the case because my machine whilst going thru college is a tough but weary and
+                    somewhat anemic
+                    <span class="tooltip-inline ">
+                        MacBook Pro.
+                        <span style="font-weight: normal">still going strong after 5 years!</span>
+                    </span>
+                    Hosting the server off this would not only be difficult
+                    <span class="aside">(my fans work hard enough as it is)</span>,
+                    but also mostly impossible
+                    <span class="aside">(no wired connection, no single IP)</span>.
+                    This itself is largely an effect of me having been in college for the past few years, constantly
+                    moving house and lacking in the space, time and resources to set up a PC that I'd be happy with.
+                </p>
+                <p>
+                    But this will all change very soon-ish! Naturally, these two changes will likely go hand-in-hand,
+                    since it's easier to set up a backend on a machine that's physically in my room. This is going
+                    to be one of my big goals once I graduate in the coming year and move into my own apartment
+                    <span class="aside">(hopefully working my own job as well!)</span> Once this happens, you can
+                    expect the site to get a lot more feature-rich and more heavily interactive. Stay tuned to
+                    the Site Updates section on the <a href="index.html">homepage</a> for more information
+                    some time soon!
+                </p>
+                <p>
+                    I'll expand on this slightly in the following section.
+                </p>
+            </div>
+            <div style="width: 30%; padding: 30px 10px 0 5%;">
+                <img src="resources/setup.webp" alt="My poor laptop sitting on a desk with microphone and mouse"
+                     style="width:100%; border: 2px double white;">
+                <p class="note" style="text-align: center">
+                    my glorious setup as of 2022 (all that's changed since then is the microphone)
+                </p>
+            </div>
+        </div>
+        <h4 style="text-align: left; margin-top: 45px;" id="todo">
+            TODO
+        </h4>
+        <p>
+            These are different from the Goals section above, I think. These are things that I plan on working on
+            implementing in the coming weeks, months and years. I'll treat these, as the title suggests, as a TODO
+            list, meaning I'll be crossing things out and adding new ones as needed. <span class="aside">This is</span>
+            the only place you're ever gonna see a Scrum board on this site.
+        </p>
+        <div class="about-lists">
+            <div class="about-list">
+                <p class="important" style="color:indianred">
+                    Backburner
+                </p>
+                <ul>
+                    <li>
+                        Move site off of AWS
+                    </li>
+                    <li>
+                        Shift to backend-frontend architecture
+                    </li>
+                    <li>
+                        Setup a site DB
+                    </li>
+                    <li>
+                        Have a forum for the site (forum.cptkrb.net?)
+                    </li>
+                    <li>
+                        Page/directory for computer projects
+                    </li>
+                    <li>
+                        Page/directory for art projects
+                    </li>
+                    <li>
+                        Sub-sub-menus for the toolbar
+                    </li>
+                    <li>
+                        Some kind of blog or journal maybe
+                    </li>
+                </ul>
+            </div>
+            <div class="about-list">
+                <p class="important" style="color:gold">
+                    In Progress
+                </p>
+                <ul>
+                    <li>
+                        Finish uploading music files
+                    </li>
+                    <li>
+                        Clean up music page
+                    </li>
+                    <li>
+                        Make all main pages mobile-compatible
+                    </li>
+                    <li>
+                        Put more analytics on the homepage
+                    </li>
+                </ul>
+            </div>
+            <div class="about-list">
+                <p class="important" style="color:forestgreen">
+                    Done!
+                </p>
+                <ul class="done">
+                    <li>
+                        Launch site version 1.0
+                    </li>
+                    <li>
+                        About site and about me pages
+                    </li>
+                    <li>
+                        Links page
+                    </li>
+                    <li>
+                        First version of toolbar
+                    </li>
+                    <li>
+                        Revamp index/homepage
+                    </li>
+                    <li>
+                        Launch site version 0.0
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h4 style="text-align: left; margin-top: 45px;" id="conclusion">
+            Conclusion
+        </h4>
+        <p>
+            That's it, I think! Thank you so much for visiting the site and
+            <span class="aside">(assuming you've gotten this far)</span> reading this about page! Just like everything
+            else here, this'll be updated as needed. Feel free to explore and use any of the site resources, more are
+            to come in the near future. Have a good morning/day/night/whatever, and keep on truckin.
+        </p>
+        <p class="purple-glow" style="text-align: right">
+            -- Kieran
+        </p>
+    </main>
 </body>
 </html>
