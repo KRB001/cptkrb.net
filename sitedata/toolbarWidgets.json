@@ -22,7 +22,7 @@
       "name": "misc", "path": "",
       "subwidgets": [
         {"name": "old index", "path":  "/old/index_old.html"},
-        {"name": "all links", "path":  "links.html"}
+        {"name": "all links", "path":  "/links.html"}
       ]
     }
   ]

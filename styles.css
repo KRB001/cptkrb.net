@@ -181,6 +181,25 @@ main.index {
     padding: 0 1px 0 1px;
 }
 
+/* small screens only */
+@media only screen and (max-width: 700px) {
+    main.index-box {
+        display: initial;
+        width: 100%;
+
+    }
+    main.index {
+        width: auto;
+        margin: 4% 5% auto 5%;
+    }
+
+    #site-updates {
+        width: auto !important;
+        margin: 30px 8% auto 8%;
+    }
+
+}
+
 main.large {
     width: 80%;
     min-width: 600px;
@@ -256,7 +275,6 @@ div.footer_border {
 }
 
 div.index-block {
-    height: 180px;
     width: 100%;
     margin: 2px auto 2px auto;
     display: flex;
@@ -956,6 +974,12 @@ a.citation:hover {
 
 #site-updates:hover {
     opacity: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+    #site-updates {
+        opacity: 100%;
+    }
 }
 
 .asterisk > .tooltip {
