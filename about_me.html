@@ -13,55 +13,57 @@
         <script type="text/javascript" src="scripts/generate-toolbar.js"></script>
         <h1>About Me...</h1>
         <main class="full">
-            <div style="display: flex; width: 100%;">
-                <div style="width:20%;">
-                    <img src="resources/me.webp" style="width: 90%; border: 2px double white;" alt="photo of me">
+            <div class="about-me-box">
+                <div>
+                    <img src="resources/me.webp" alt="photo of me">
                     <!-- this whole thing should be a <ul> but im too lazy to change it rn -->
-                    <div class="asterisk" style="width:53%">
+                    <div>
+                        <div class="asterisk" style="width:53%">
+                            <p class="about-me">
+                                <span class="row">Name:</span>
+                                <span class="entry">Kieran</span><span title="subject to change"><span style="color:pink">*</span><span style="color:white">*</span><span style="color:lightskyblue">*</span></span>
+                                <br>
+                            </p>
+                            <!-- TODO: remove me if/when i get a name change -->
+                            <div class="tooltip" style="width: 180px;">
+                                <p>subject to change sometime soon</p>
+                            </div>
+                        </div>
                         <p class="about-me">
-                            <span class="row">Name:</span>
-                            <span class="entry">Kieran</span><span title="subject to change"><span style="color:pink">*</span><span style="color:white">*</span><span style="color:lightskyblue">*</span></span>
+                            <span class="row">Age:</span>
+                            <span class="entry">20-something</span>
                             <br>
                         </p>
-                        <!-- TODO: remove me if/when i get a name change -->
-                        <div class="tooltip" style="width: 180px;">
-                            <p>subject to change sometime soon</p>
-                        </div>
-                    </div>
-                    <p class="about-me">
-                        <span class="row">Age:</span>
-                        <span class="entry">20-something</span>
-                        <br>
-                    </p>
-                    <p class="about-me">
-                        <span class="row">Pronouns:</span>
-                        <span class="entry">she/they</span>
-                        <br>
-                    </p>
-                    <p class="about-me">
-                        <span class="row">From:</span>
-                        <span class="entry">Alaska</span>
-                        <br>
-                    </p>
-                    <p class="about-me">
-                        <span class="row">Currently in:</span>
-                        <span class="entry">East-coast area</span>
-                        <br>
-                    </p>
-                    <p class="about-me">
-                        <span class="row">Job:</span>
-                        <span class="entry">Computer and
+                        <p class="about-me">
+                            <span class="row">Pronouns:</span>
+                            <span class="entry">she/they</span>
+                            <br>
+                        </p>
+                        <p class="about-me">
+                            <span class="row">From:</span>
+                            <span class="entry">Alaska</span>
+                            <br>
+                        </p>
+                        <p class="about-me">
+                            <span class="row">Currently in:</span>
+                            <span class="entry">East-coast area</span>
+                            <br>
+                        </p>
+                        <p class="about-me">
+                            <span class="row">Job:</span>
+                            <span class="entry">Computer and
                             <a href="https://youtube.com/@CaptainKRB" target="_blank" style="font-family: inherit">
                                 youtube
                             </a>
                         </span>
-                        <br>
-                    </p>
-                    <div style="width: 100%;">
-                        <img class="icon_full" style="margin:auto; width: 50%;"; src="resources/logo_spin.gif" alt="Spinning Logo">
+                            <br>
+                        </p>
+                        <div style="width: 100%;">
+                            <img class="icon_full" style="margin:auto; width: 50%;"; src="resources/logo_spin.gif" alt="Spinning Logo">
+                        </div>
                     </div>
                 </div>
-                <div style="width:80%; padding-left: 15px">
+                <div>
                     <h3 style="text-align: left; text-decoration: underline; margin-top: 0;">Hello kid</h3>
                     <p>
                         My name is Kieran. I'm a person who likes a variety of different things and does an even
@@ -200,7 +202,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="about-list" style="height:100px">
+                        <div class="about-list">
                             <h4 style="text-align: left">interests</h4>
                             <ul>
                                 <li>
