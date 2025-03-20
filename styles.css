@@ -945,6 +945,23 @@ div.citation_toggle {
     transition-duration: 0.2s;
 }
 
+@media only screen and (max-width: 800px) {
+    div.citation_toggle {
+        display: flex;
+        min-height: initial;
+        padding-bottom: 5px;
+    }
+    div.citation_toggle > h4 {
+        width: 50%;
+        margin-top: 10px;
+        margin-bottom: 0 !important;
+    }
+    div.citation_toggle > button {
+        width: 50% !important;
+        height: 100%;
+    }
+}
+
 div.citation_toggle:hover {
     opacity: 100%;
 }
