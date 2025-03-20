@@ -575,7 +575,56 @@ ul.docs_list > li > ul > li > p {
     text-overflow: ellipsis;
 }
 
+ul.docs_list > li > ul > li:not(:first-child) > span {
+    display: none;
+    font-family: Arial, serif;
+    font-size: 16px;
+}
 
+@media only screen and (max-width: 800px){
+
+    ul.docs_list > li {
+        height:auto;
+    }
+
+    ul.docs_list > li:first-child {
+        display: none;
+    }
+
+    ul.docs_list > li > ul {
+        display: inline-block;
+        list-style-type: none;
+        list-style-position: inside;
+    }
+
+    ul.docs_list > li > ul > li {
+        border: none;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    ul.docs_list > li > ul > li:first-child {
+        height: auto;
+    }
+
+    ul.docs_list > li > ul > li:last-child {
+        margin-bottom: 15px;
+    }
+
+    ul.docs_list > li > ul > li:not(:first-child) > p {
+        display: none;
+    }
+
+    ul.docs_list > li > ul > li:not(:first-child) > span {
+        display: initial;
+    }
+
+    ul.docs_list > li > ul > li:not(:first-child)::before {
+        content: ">> ";
+        display: inline;
+    }
+
+}
 
 /* ### Formatting for Individual Docs ### */
 
