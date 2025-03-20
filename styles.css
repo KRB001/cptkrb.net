@@ -745,6 +745,19 @@ div.about-lists > div.about-list > ul > li {
     list-style-type: none;
 }
 
+/* ### About Site ### */
+
+@media only screen and (max-width: 800px) {
+    main.has-inserts > div {
+        display: block !important;
+    }
+
+    main.has-inserts > div > div {
+        width: auto !important;
+        padding: 0 !important;
+    }
+}
+
 /* for list of 'done' things */
 div.about-lists > div.about-list > ul.done > li {
     color: grey;
