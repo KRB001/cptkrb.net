@@ -208,6 +208,14 @@ main.large {
     background-color: black;
 }
 
+@media only screen and (max-width: 800px) {
+
+    main.large {
+        min-width: 350px;
+    }
+
+}
+
 main.full {
     width: 94%;
     margin: 2% auto 2% auto;
@@ -436,10 +444,10 @@ ul.music_list > li {
 /* Small screens only */
 @media only screen and (max-width: 1040px){
     ul.music_list > li {
-        height:260px;
+        height:170px;
     }
     ul.music_list > li:first-child {
-        visibility: hidden;
+        display: none;
     }
 }
 
@@ -480,16 +488,33 @@ ul.music_list > li > ul > li {
 
 /* Small screens only */
 @media only screen and (max-width: 1040px){
+
     ul.music_list > li > ul > li {
         border-right: none;
-        border-bottom: solid white 1px;
-        margin: auto;
+        margin-left: 15px;
         padding-top: 5px;
         align-content: center;
-        padding-left: 0;
-        text-align: center;
+        text-align: left;
     }
+
+    ul.music_list > li > ul > li:first-child > p {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    ul.music_list > li > ul > li:not(:first-child) > p {
+        font-style: italic;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    ul.music_list > li > ul > li:last-child > p {
+        font-style: italic;
+    }
+
     ul.music_list > li > ul > li:last-child {
+        padding-left: 15px;
+        padding-top: 15px;
         border-bottom: none;
     }
 }
