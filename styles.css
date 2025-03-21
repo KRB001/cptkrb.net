@@ -418,7 +418,32 @@ div.toolbar > ul > li:hover > .dropdown > ul > li:hover > a > p {
     color: orange;
 }
 
-
+/* small screens only */
+@media only screen and (max-width: 800px){
+    div.toolbar {
+        width: 15%;
+        min-width: 80px;
+        margin: auto auto auto 15px;
+    }
+    div.toolbar > ul {
+        display: initial;
+        width: 100%;
+    }
+    div.toolbar > ul > li:not(:first-child) {
+        display: none;
+    }
+    div.toolbar > ul:hover > li {
+        display: block;
+    }
+    div.toolbar > ul:hover > li:first-child {
+        background-color: yellow;
+    }
+    div.toolbar > ul > li > .dropdown {
+        left: 100% !important;
+        bottom: 10%;
+        width: 200%;
+    }
+}
 
 
 /* ##### Music List ##### */
