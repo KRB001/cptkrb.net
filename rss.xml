@@ -6,12 +6,14 @@
         <description>Official RSS feed for CPTKRB.net, mostly news and updates and such</description>
         <language>en-us</language>
         <item>
-            <title>Test</title>
+            <title>[ version 1.2 ] rss mostly</title>
             <description>
-                Test description hi hi hiiiii
+                We have an RSS feed now! Given that you're reading this, you probably already know that.
+                Site updates and other related stuff will go out on this feed, hopefully in the coming months.
+                We'll see.
             </description>
-            <link>https://cptkrb.net/caesar.html</link>
-            <pubDate>Wed, 14 May 2025 16:53:00 -0400</pubDate>
+            <link>https://cptkrb.net</link>
+            <pubDate>Wed, 14 May 2025 17:15:00 -0400</pubDate>
         </item>
     </channel>
 </rss>
