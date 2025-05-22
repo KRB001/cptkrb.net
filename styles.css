@@ -167,14 +167,19 @@ main.in_progress {
 
 main.index-box {
     width: 65%;
-    margin: 6% auto auto auto;
+    margin: 4% auto auto auto;
     display: flex;
 }
 
-main.index {
+main.index-wrapper {
     width: 73%;
     min-width: 300px;
     margin: auto auto auto 0%;
+    padding: 0 1px 0 1px;
+}
+
+main.index {
+    width: 100%;
     border: double white 2px;
     background-color: black;
     justify-content: center;
@@ -188,7 +193,8 @@ main.index {
         width: 100%;
 
     }
-    main.index {
+
+    main.index-wrapper {
         width: auto;
         margin: 4% 5% auto 5%;
     }

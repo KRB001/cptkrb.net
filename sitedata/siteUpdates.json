@@ -6,5 +6,7 @@
   {"date": "03/12/2025", "content": "[ version 0.2 ] We have a toolbar! Toolbar will be availible on pretty much every page except index for the forseeable future and is managed by a script and json file for easy updates"},
   {"date": "03/17/2025", "content": "[ version 1.0 ] The site is no longer under construction!!! Well, it technically is, but for the time being we have a proper index page, some about pages, a working toolbar and much more. More work to come!"},
   {"date": "03/21/2025", "content": "[ version 1.1 ] Full mobile browser support for all current pages. Everything no longer looks horrific on mobile!!!"},
-  {"date": "05/14/2025", "content": "[ version 1.2 ] In my scheduled burst of activity and interest I've implemented an RSS feed for the site, accessible by clicking the little orange button on the homepage :)"}
+  {"date": "05/14/2025", "content": "[ version 1.2 ] In my scheduled burst of activity and interest I've implemented an RSS feed for the site, accessible by clicking the little orange button on the homepage :)"},
+  {"date": "05/15/2025", "content": "handful of tiny tweaks and additions have been made. find them if you dare."},
+  {"date": "05/22/2025", "content": "hotfix: I changed my name :)"}
 ]

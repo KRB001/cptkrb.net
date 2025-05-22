@@ -6,6 +6,29 @@
         <description>Official RSS feed for CPTKRB.net, mostly news and updates and such</description>
         <language>en-us</language>
         <item>
+            <title>[ version 1.2.2 ] i guess this is a hotfix</title>
+            <description>
+                hi everybody, I changed my name :]
+                site's been updated to reflect this. have a nice day !!
+            </description>
+        </item>
+        <item>
+            <title>[ version 1.2.1 ] tweaks and a secret script</title>
+            <description>
+                Made a handful of minor additions and styling tweaks, plus free early-access to an upcoming
+                video script (that hopefully won't take more than another week to produce???) exclusively for you
+                all, becuz you're likely the only ones that will notice the change...
+                ==CHANGELOG:
+                    >> added an item to the backlog
+                    >> reformatted index layout so widgets can be placed along the bottom
+                    >> 8 new splashes
+                    >> changed my photo in the About Me section to fit the season
+                    >> new script for the scripts archive :)
+            </description>
+            <link>https://cptkrb.net</link>
+            <pubDate>Wed, 15 May 2025 14:37:00 -0400</pubDate>
+        </item>
+        <item>
             <title>[ version 1.2 ] rss mostly</title>
             <description>
                 We have an RSS feed now! Given that you're reading this, you probably already know that.
