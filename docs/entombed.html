@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Script for Blockbuster's Abandoned Complexes">
+  <meta name="author" content="Sierra">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documents - Your Domain Does Not Exist</title>
+  <link rel="icon" type="image/x-icon" href="../icon.ico">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="with-toolbar">
+
+  <script type="text/javascript" src="../scripts/generate-toolbar.js"></script>
+
+  <div class="brief">
+    <p><a href="docs_main.html"><<< Back to index</a></p>
+  </div>
+
+  <div class="citation_toggle_container">
+    <div class="citation_toggle">
+      <h4 style="margin-bottom: 5px;">
+        TOGGLE CITATIONS
+      </h4>
+      <button class="toggle" style="width:6vw" id="citation-toggle">
+        [ON]
+      </button>
+    </div>
+  </div>
+
+  <main class="doc">
+    <h1>Entombed Maze Algorithm</h1>
+    <h2>By Captain KRB (Sierra)</h2>
+
+    <p class="purple-glow hey">
+      Hey Everybody
+    </p>
+
+    <p>
+      So, last episode we talked about Blockbuster’s abandoned Block Party buildings, their
+      near-imperceptible span of existence in the midst of a fast-moving decade before being eroded
+      and stripped down to burnt-out labyrinthian husks by the tireless currents of time. Between
+      their abandonment and their destruction slash reoccupation, the Block Party structures could
+      be explored as incidental mazes by those bold enough to venture inside. Now if,
+      understandably, you want the maze experience without the rotting building element, you’ve
+      still got plenty of options, and at the top of my mind presently is the seminal 1982 Atari 2600
+      title Entombed, which tasks the player with navigating a fast-scrolling warren of corners and
+      crevices whilst being pursued by a little blue entity. Most relevant to the video, however, is the
+      fact that for over 3 decades, nobody could figure out how this game actually worked. So, let’s
+      take a crack at it.
+    </p>
+
+    <p>
+      Where else to start but the beginning; in this case, the vibrant autumn of 1982. Around
+      November of this year, now-defunct and wonderfully-named publisher US Games releases
+      Entombed for the wildly popular Atari 2600 system.<a href="#1" class="citation">[1]</a>
+      The game is simple – it kinda has to be – and it centers around a scrolling maze which the player must pathfind
+      through while dodging what is ostensibly a zombie. You can pick up an appropriately rectangular item called a ‘make-
+      break’ to either remove or place a chunk of maze wall to aid in this endeavor. If you get
+      knocked off the screen, you die. If the zombie touches you, you die.<a href="#2" class="citation">[2]</a>
+      Simple, quick, repeatable; it’s a 2600 game. And it remained as such through the crash of ’83, the rise of the NES and
+      sundry events leading up to and following the turn of the millennium. In fact, it wasn’t until
+      2018 that someone noticed something was… a bit off.
+    </p>
+
+    <p>
+      The maze in Entombed is impossible. Or, at least, it seemed as such. It continues to
+      appear, for minutes at a time, with patterns that are generally navigable, as if designed
+      beforehand. But the game cartridges themselves were limited to 4kB of ROM in those early
+      days, making it infeasible if not impossible for the programmer of Entombed to have stored
+      entire maze layouts statically or to have such layouts residing in memory. Thus it had to be
+      generated procedurally, but that didn’t seem quite right either; it wasn’t purely random, the
+      mazes almost always yielded valid paths, regardless of how long they went on for, and while a
+      more modern system could easily evaluate the solvability of a maze in real-time, such a feat
+      was a bit outside the console’s capabilities. The 2600 was, to put it diplomatically, anemic even
+      for its own time; its budget MOS 6507 microprocessor limited its address space to 8kb, and
+      programmers had to make do with a whopping 128 bytes of RAM on a weird agglomerate
+      integrated circuit called a RIOT chip.<a href="#2" class="citation">[2]</a>
+      Not small enough to be stored, not quick enough to be
+      built; an impossible, inexplicable maze algorithm, and one that for a long time remained a
+      mystery. That was until 2018, when researchers John Aycock and Tara Copplestone set out to
+      disassemble the bytecode of Entombed to find out what exactly made it tick.<a href="#2" class="citation">[2]</a>
+    </p>
+
+    <p>
+      nd they found it. Sorta. After the laborious effort of reconstructing the game’s source
+      code, Aycock and Copplestone were able to deduce that, baked into the circuits of the
+      Entombed cartridge, there was in fact a procedural maze generation algorithm, but why it
+      worked wasn’t quite so clear. Let me explain. Entombed generated squares of the maze in
+      rows, from top to bottom, and in each row left to right, like reading a book. To determine
+      whether or not any given square would contain a space or a wall, the algorithm took 5 variables
+      in the form of 5 squares surrounding the square being generated: two to the left, one to the
+      left, top left, top middle, and top right. Since we’re dealing with squares that can be either a
+      space or a wall, we have, essentially 5 binary digits; an unsigned 5-bit number, or, a sample
+      space of 32 possible wall configurations. After reading these digits, Entombed used them to
+      query a lookup table on the cartridge; and this is the weird part. The table, seemingly
+      arbitrarily, had 32 entries, one for each possible wall configuration, and based on the entries
+      the game would place a wall, a space, or randomly select from between the two, then move on
+      to the next square. If we call the 5 input squares a through e in order, then space-space-wall-
+      space-wall produced a space, wall-space-space-wall-space produced a wall, and wall-wall-wall-
+      space-space produced a random choice between the two, and so on like this 29 more times.
+      There was a case like this for every one of the 32 possible arrangements. And that’s basically it.
+      That’s the algorithm.<a href="#2" class="citation">[2]</a>
+    </p>
+
+    <p>
+      Now, this answers some questions, and poses a couple more. It solves the problem of
+      how the maze fits on the Entombed cartridge, and how it’s able to be made so quickly; since
+      the game’s only checking 5 squares at a time, it can generate the maze at the breakneck pace
+      seen in-game. But the algorithm doesn’t know anything about the maze, all it knows is the five
+      squares surrounding its present index, and yet it’s somehow able to procedurally create a
+      consistently runnable maze each and every time. That’d be like only being able to see in a two-
+      foot circle around you and still being able to construct a three-bedroom house at a normal
+      pace. The table works, the algorithm works, the game works, but why? Aycock and Copplestone
+      left this, for the time being, as an open question. But in time, contact was made with the only
+      individual potentially able to answer it: the game’s original programmer.<a href="#3" class="citation">[3]</a>
+    </p>
+
+    <p>
+      As it would turn out, a man named Stephen Sidley was responsible for the game’s
+      creation in 1982.<a href="#4" class="citation">[4]</a> Aycock was able to make contact with
+      Sidley, and inquired as to the provenance of the algorithm, as well as how its seemingly miraculous table
+      operated. But Sidley’s response was not as expected; he had not written the algorithm. While working for US
+      Games, the programmer had, apparently, been given a cartridge containing a mysterious maze-
+      generator algorithm by the company and told to repurpose it into a functional game. Sidley
+      then designed the game without fully understanding the algorithm either, simply using it to
+      generate new rows and constructing a game around it.<a href="#2" class="citation">[2]</a>
+      Steve Sidley programmed Entombed, but the algorithm predated it.<a href="#4" class="citation">[4]</a> When
+      asked about the origins of the algorithm, Sidley was less helpful; he responded with a legend,
+      that it had been written by “a stoner” who had developed it while blackout drunk and had no more understanding
+      of its operation than anyone else. However, in closing, he did provide something slightly more useful: a
+      name, ‘Newell.’<a href="#4" class="citation">[4]</a>
+    </p>
+
+    <p>
+      Aycock was able to use this lead to unearth a 2008 interview by Digit Press with a
+      computer scientist named Paul Allen Newell, in which he explains his experiences in the early
+      1980s creating a very familiar maze generation system.<a href="#5" class="citation">[5]</a> After this
+      article was discovered, and later following a New Yorker interview with Aycock, Sidley and Newell in
+      2021,<a href="#4" class="citation">[4]</a> the story began to slowly piece itself together. You see, in 1981,
+      Newell, a computer scientist working for Western Technologies, got it in his head to develop a game based
+      upon navigating a dynamically generated maze. In collaboration with a mathematician friend named Duncan
+      Muirhead, the pair developed a rough outline for an elegant algorithm to do exactly this over a
+      few beers on a night out – not quite the drunken stupor Sidley had described the session as, but
+      hey, that’s just how legends work.<a href="#1" class="citation">[1]</a> Newell had originally embarked
+      on the creation of the algorithm during the development of a game called Towering Inferno, but had largely relegated
+      it to a side-project called MAZV by the spring of 1982. By the summer, while still working as a
+      contractor, Newell’s management had taken an interest in the maze program, and requested
+      that it be developed into a fully-fledged game; as such, Newell handed over a stripped-down
+      version of the algorithm called MINOTR7 to a young programmer named Stephen Sidley, who
+      constructed around it the game that would eventually become Entombed by the end of that
+      year.<a href="#5" class="citation">[5]</a>
+    </p>
+
+    <p>
+      And so the story concluded. A programmer and a mathematician write a hobbyist maze
+      generator algorithm, an algorithm gets handed to a new programmer with little explanation, a
+      programmer builds a working game around an algorithm, and a game goes unexplained for the
+      next 35 years. In 2022, Aycock published a follow-up paper explaining how the drunken
+      programmer story likely came about – that it was a way to defer intellectual property
+      responsibility for ownership of the program – and giving it an official name: the Muirhead-
+      Newell Endless Maze Algorithm,<a href="#6" class="citation">[6]</a> reportedly named as such because Newell
+      believed Muirhead’s math had been 51% of the total work.<a href="#3" class="citation">[3]</a>
+    </p>
+
+    <p>
+      Now, we’re not quite done. We know where the algorithm came from, who wrote it,
+      and how it ended up in Entombed. But we still don’t know why it works. What’s the deal with
+      the table? How do the mazes come out the way they do when only a tiny chunk of the maze is
+      visible to the algorithm? In 2021, two researchers at PSL in Paris named Leon Machler and
+      David Naccache posited that the table was tuned by its original programmer so that every
+      choice conformed to a set of 3 rules: that 2x2 squares of wall or space weren’t allowed, that
+      any vertical chunk of wall or space couldn’t start with width 1, and that any path in a line must
+      connect to a path in the next line. When, based on the 5 input squares, a wall would violate any
+      of these rules, a space is hardcoded to appear. Vice versa for walls, and when neither would
+      violate a rule, a choice is randomly made.<a href="#7" class="citation">[7]</a> By this interpretation,
+      Newell and Muirhead would’ve started with guidelines that ensure any given maze is solvable,
+      then built a table of 32 entries where every entry is tuned to make sure it never breaks a rule, then finally
+      written the algorithm to take input and place a square based on the table’s output. But as it would turn
+      out, this wasn’t necessary.
+    </p>
+
+    <p>
+      For the 2022 paper, Aycock was able to obtain Newell’s original notes for the algorithm
+      and determine the exact steps the program took to determine a square’s status. And, well, ok.
+      This isn’t a technical show, at least, I don’t try to make it one, so suffice to say, the algorithm
+      split the 5-square piece into 3 separate pieces and did some math with the first two pieces to
+      determine what a square should be, with a special overriding case being selected if the third
+      piece was uniform and two even more special cases being selected for specific arrangements
+      that Newell noticed made unpleasant mazes in testing. So, at the end of the day, the table was
+      mostly an intermediary step, and wasn’t really the mystically effective codex that it was initially
+      assumed to be, but I digress.<a href="#6" class="citation">[6]</a>
+    </p>
+
+    <p>
+      It’s kinda weird to know that it is indeed possible to write a piece of code so inexplicable
+      that it becomes the subject of academic study years later. Makes me kinda paranoid. But that’s
+      just me. So ends the mystery of the Entombed Maze Algorithm, which, if you look at it a certain
+      way, was never really a mystery at all; it just took a while to find the guy who just had the
+      answers and was ready to give them. It makes you wonder. Anyway, that’s all I got for tonight.
+      Thanks for watching, and I’ll see you around.
+    </p>
+  </main>
+
+
+</body>
+</html>
