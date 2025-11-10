@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Script for Gopher Protocol">
+		<meta name="author" content="Sierra">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Documents - Gopher Protocol</title>
+		<link rel="icon" type="image/x-icon" href="../icon.ico">
+		<link rel="stylesheet" href="../styles.css">
+	</head>
+	<body class="with-toolbar">
+		
+		<script type="text/javascript" src="../scripts/generate-toolbar.js"></script>
+		
+		<div class="brief">
+			<p><a href="docs_main.html"><<< Back to index</a></p>
+		</div>
+		
+		<div class="citation_toggle_container">
+			<div class="citation_toggle">
+				<h4 style="margin-bottom: 5px;">
+					TOGGLE CITATIONS
+				</h4>
+				<button class="toggle" style="width:6vw" id="citation-toggle">
+					[ON]
+				</button>
+			</div>
+		</div>
+		
+		<main class="doc">
+			<h1>Entombed Maze Algorithm</h1>
+			<h2>By Captain KRB (Sierra)</h2>
+
+			<p class="purple-glow hey">
+			  Hey Everybody
+			</p>
+			
+			<p>
+				So, last episode we talked about the bizarre maze-generation algorithm from Entombed.
+				Algorithms and protocols, these days, govern a lot of what we see and think and do, as has
+				been the case since the beginning of the information age and a bit before it. Computers need
+				protocols; a machine getting a big stream of bytes has absolutely no way of telling what any of
+				it actually means, so it’s up to computer scientists to build a system that makes things make
+				sense. Take, for example, the internet; when people say ‘the internet,’ they very often aren’t
+				actually referring to the internet (at least, not explicitly). The internet is a bunch of computers
+				scattered across the breadth of the earth and the lines of contact crisscrossing between them,
+				but when you hear ‘the internet’ mentioned, it’s probably not in reference to this, but rather
+				the collection of documents, videos, images, and other such resources stored within these
+				computers and accessible through your web browser of choice; that is to say, the World Wide
+				Web. The Web is something so sprawling, so ubiquitous, so commanding in its presence that
+				it’s easy to assume it simply has always been, intrinsically bound to the machines whose shells
+				it inhabits. But that’s not true at all. The Web is yet another construct defined by a protocol, in
+				this particular case, the Hypertext Transfer Protocol, and if things had been just a little different
+				in the tumultuous dawning days of the consumer global network, we might not have had it
+				today at all. We might have, instead, been using something called Gopher.
+			</p>
+			
+			<p>
+				Now, before we get moving, let’s make sure we understand how exactly the web works.
+				At risk of grossly oversimplifying, the web and the HTTP derivatives it operates upon are
+				basically just a way for computers to ask for things and get them. In its simplest form, one client
+				machine within a network sends a formatted request for a file to a server machine in that same
+				network, which is running a webserver process that accepts the request, thinks it over for a bit,
+				and either sends that file back (chopped up into tiny pieces usually) or responds explaining why
+				it can’t do that. It’s just asking for documents. It’s always just been asking for documents. Of
+				course, these days, you’ve got asynchronous requests and differing transport protocols and
+				encryption and so on, but the ironclad foundation upon which this spire of systems was built is
+				just the idea that one computer can ask for a file and another computer can serve it up hot and
+				ready.<a href="#1" class="citation">[1]</a> It’s not exactly an obtuse concept, and really the only
+				reason it took until 1990 and 1991 for computer scientist Tim Berners-Lee and his team to formally
+				design a specification for it was simply because the internet wasn’t complex enough yet to necessitate 
+				it.<a href="#2" class="citation">[2]</a> And, bearing this in mind, it should come as no great surprise
+				that while the HTTP/Web team was plugging along at CERN in Switzerland, another parallel project was
+				well underway at Minneapolis and St. Paul’s own University of Minnesota: the powerful new Gopher Protocol.
+			</p>
+			
+			<p>
+				Gopher’s story begins, roughly, in 1991, when a UofM committee resolved to call for the
+				creation of a campus-wide information system, or CWIS, for quick access of university
+				resources. Colleges had long been years ahead of the world at large when it came to the testing
+				of networking concepts, and internet-overlay information-retrieval systems were no great
+				exception; the university wanted, in essence, a custom-built system through which its
+				computers could query eachother to quickly and efficiently fetch files without the use of the
+				beast that was FTP. After a great deal of deliberation, design of the system fell to a small
+				university development team sourced from the school’s Microcomputer Center and led by one
+				Mark P. McCahill, and throughout ’91 the group put in hours on what would, by the middle of
+				the year, be officially known as the Gopher Internet Protocol, a play on both the university’s
+				mascot and the colloquial use of the term for someone who go’s pher something. You get it.
+				The protocol’s original presentation to the college’s board, according to team member Bob
+				Alberti, was an unmitigated disaster, as the Gopher group had designed the protocol to operate
+				over a client-server architecture instead of running off a mainframe as the administration had
+				requested, and the university subsequently refused to see the project carried any further.
+				Undeterred, developer Paul Lindner unleashed Gopher upon the virgin net at large in the hopes
+				that the system could thrive on its own in April of 1991. And, if one were to get their hands on
+				an early version of the software upon such a spring morning, this is what they’d come face to
+				face with.<a href="#3" class="citation">[3]</a>
+			</p>
+			
+			<p>
+				Gopher was, by design, simple and almost painfully direct. Structurally, it wasn’t too far
+				off from the Web of tomorrow: one computer could run a Gopher server whilst another ran a
+				Gopher client, the client could ask the server for whatever it so desired, so on and so forth. But
+				that was about where the similarities ended. A sample Gopher session would go like this: the
+				client opens a TCP connection with a server on a pre-decided Gopher port; this is how they say
+				hi. The client sends an empty line, indicating that it’s ready to accept information, and the
+				server sends back a Gopher directory listing. This is where Gopher really stands on its own; the
+				system was structured and hierarchical, with any given Gopher server consisting of a tree of
+				directories that narrow down further and further in specificity until you get access to the
+				specific document or file you seek, its type of course indicated by a simple plaintext enumerator
+				value at the beginning of its directory listing. For example, since I think one honestly might be
+				needed, if I opened up my Gopher browser and connected to my favorite Gopher server in
+				search of my favorite photos of, uh, cool arches and columns, I’d click through to the directory
+				for pictures, then click through to the directory for architectural photos, and finally be served a
+				listing of photos for me to download. Each listing in a Gopher directory represented either a file
+				or another directory, and served up alongside the listings and their types was a resource locator
+				string that the Gopher client would send to the server in order to get access to whatever it was
+				meant to locate. As something of an effect of how the internet worked at that point, and unlike
+				the strictly regimented URLs of the future, these locators didn’t really have to conform to any
+				standard at all; they simply instructed the Gopher browser to send this specific message to this
+				specific server with the promise of being rewarded with whatever the directory said it held.
+				<a href="#4" class="citation">[4]</a> Servers could also direct clients to other servers entirely
+				if needed. That, in essence was Gopher. And the people loved it.
+			</p>
+			
+			<p>
+				It’s hard to describe the exact manner in which Gopher propagated across the net
+				because, at the time, it really wasn’t comparable to anything that had occurred in the preceding
+				years. The protocol found overnight strongholds in universities across the nation who accepted
+				the system with open arms and reached out with eagerness for the next updates and additions
+				to be added. It’s important to note that, at this point, we’re still riding the edge of the internet’s
+				incubation period, so it just wasn’t feasible for the meager 5 million global internet users,
+				<a href="#5" class="citation">[5]</a>
+				consisting mostly of students, researchers and hobbyists, to send Gopher up the top of the
+				charts in the way the future internet would be capable of, but let it be known that they damn
+				well did their best. Within weeks, letters were being written into the University of Minnesota
+				demanding new functionality and future versions, and with this the team was reinstated and
+				instructed to work on the development of the official Gopher software package by the middle
+				of 1991.<a href="#3" class="citation">[3]</a>
+			</p>
+			
+			<p>
+				And so, as the net began to expand at a dizzying pace that shocked even its long-term
+				denizens and overseers, so did Gopher and its influence begin to spread with it. By 1992, as
+				relayed by the team in years to come, hundreds of working Gopher servers had sprung up
+				across the continental US and, more and more with each day, abroad as well.
+				<a href="#3" class="citation">[3]</a> This was the great transitional period of the internet,
+				from an epoch that had begun when ARPANET was first switched on in 1969<a href="#6" class="citation">[6]</a>
+				into one that we arguably still reside within to this very day. No longer was the net relegated to 
+				college campuses and sequestered within squat laboratory buildings; everyday people were for the first 
+				time getting an introduction to this fascinating new technology, and by 1992, chances are their first 
+				encounter featured a conversation with a Gopher server.
+			</p>
+			
+			<p>
+				The infrastructure and community soon began to catch up with the excitement as well;
+				November ’92 saw a team from Reno’s University of Nevada publish the first version of
+				Veronica, a full-feature Gopher search engine with possibly the most egregious backronym for a
+				name I’ve ever had the pleasure of coming across. Naming aside, Veronica was a trailblazing
+				piece of software and one of the most sophisticated search engines in existence at the time of
+				its creation.<a href="#7" class="citation">[7]</a> Three months earlier, the first of many 
+				GopherCons had taken place in sunny Ann Arbor, Michigan,<a href="#8" class="citation">[8]</a> and
+				the following 4 cons over the following 4 years would prove instrumental in strengthening the community
+				and bringing about changes in the project’s development. These cons were some of the first major
+				enthusiast gatherings centered around an internet community; they drew crowds of not just hobbyists
+				but interested university representatives, scientists and big shot corporate investors.
+				<a href="#3" class="citation">[3]</a> Developers introduced their own Gopher-centric
+				passion projects, they had their own t-shirts, Al Gore was there, it was like nothing seen before.
+				Browsing the internet’s sprawling decentralized library of extant resources was now, for the
+				very first time, made organic and slick and accessible, and it seemed that more so now than
+				ever, any new idea released upon the net at large would make its debut on a Gopher server.
+				Including, as the story goes, a strange new information system protocol out of CERN called the
+				World Wide Web, but we’ll get back to that later.<a href="#3" class="citation">[3]</a>
+			</p>
+			
+			<p>
+				In 1993, Gopher’s dominion over the net was, in a sense, codified when IANA officially
+				designated the prestigious TCP port 70 as the reserved Gopher communication channel, which
+				it continues to hold to this day,<a href="#4" class="citation">[4]</a> closer to ground level
+				than the bastions of HTTP and HTTPS on ports 80 and 443 respectively. By this point in time
+				it was estimated that close to 7,000 Gopher servers were actively maintained across the globe,
+				far greater in number than any competing standard<a href="#9" class="citation">[9]</a> and attaining
+				a record high of roughly one Gopher server for every 1400 internet users.<a href="#5" class="citation">[5]</a>
+				In just two short years, it had gotten to a point where, to a great number of internet
+				users, it was Gopher or nothing; there simply couldn’t be another way to feasibly surf the global
+				network. But of course, as you all know and at the risk of belaboring the point, this was not to
+				last.
+			</p>
+			
+			<p>
+				In matters of history, when grappling with rise-and-fall narratives, don’t ever let
+				anybody tell you that it was Just That One Thing; that eternal perpetuation was all but
+				inevitable if not for one key moment that forced a sudden, painful disintegration. With the
+				dance of Gopher and the Web, it’s easy to mythologize what would occur as a face-to-face
+				struggle with a single champion and a conquered foe; to say that the Web was just too good,
+				just too strong for Gopher to stand beneath the weight of its growing shadow. But that’s not
+				entirely true, is it? In reality, as is overwhelmingly often the case, Gopher’s slow collapse can be
+				attributed to a number of different factors, all on their own a bit more mundane, but as a
+				collective, I think, a hell of a lot more interesting.
+			</p>
+			
+			<p>
+				Two events in this category occurred which quickly shifted the dynamics of Gopher use online: 
+				firstly, at GopherCon ’93, which took place
+				in April in Minneapolis, University of Michigan announced it would begin charging a licensing
+				fee for all future editions of the software package published by the Gopher
+				team;<a href="#10" class="citation">[10]</a> as it would turn out, since Gopher server had been 
+				available as freeware for the past two years, the Gopher team had remained largely internally 
+				funded throughout development, and the University had made the choice to cash in on the popularity
+				of their proprietary technology. In a turn of events which shocked precisely no one, the community’s
+				reaction was swift and invariably negative, flooding Gopherspace with outrage and turning many off the
+				project entirely. This was not made any better when, in mid 1993, the team posted an inflammatory
+				public address to all Gopher users attempting to justify the imposition of fees. The move, which
+				famously did not work for Bill Gates in ’76, flopped comparably for the Gopher team in ’93, and
+				as Bob Alberti would put it, “socially killed Gopher.”<a href="#3" class="citation">[3]</a>
+				At the same time and a few states away, the University of Illinois’ NCSA lab announced the initial
+				public release of Mosaic, developed by many of the same researchers who would go on to design
+				Netscape Navigator and widely considered the first commercially successful internet browser. 
+				Mosaic offered a bevy of versatile browsing features in a markedly user-friendly graphical package,
+				and, it should be noted, was built to browse the burgeoning World Wide Web, not the extant
+				Gopherspace.<a href="#11" class="citation">[11]</a>
+			</p>
+			
+			<p>
+				These factors alone did not kill Gopher; far from it. What they did do, however, was
+				create an environment in which Gopher was newly pricey and stained with controversy, whilst
+				the comparatively newer Web was unblemished, distinguished by the shine of youth and
+				boasting support from the world’s first browser to make front page news. Throughout 1993
+				Gopher traffic intensified by a factor of 10; but, for the first time, the growth of the net, and
+				now the World Wide Web, was outpacing it.<a href="#3" class="citation">[3]</a> These changes paved
+				the way for the second category of factors to take effect, slower in pace but utterly inexorable:
+				simply put, the internet had changed. Gopher, with its strict form and hierarchy, simple communication 
+				protocols and fully list-based navigation, had found its niche in text-based browsers, campus information
+				systems and the pre-1993 hobbyist internet. But the Web, with its largely form-agnostic nature
+				and freeform linking system in the form of clickable hypertext, seemed with each day ever
+				more suited to the sprawling, disjointed and endlessly diverse internet of the oncoming 21st
+				century. For the very first time, in 1994, the number of Web users would surpass that of
+				Gopher, and within another year or two, it was no longer a contest. To quote directly from the
+				Gopher team’s youngest developer Paul Lindner in an interview with the Minnesota Post: “I
+				remember the exact moment I knew I was no longer on the right track, … It was September 9,
+				1993. I was invited to give a talk about Gopher at Princeton, and I had my slides all printed up
+				on my little university-budget black-and-white foils. The person presenting before me was
+				talking about the future of the Web, with full-color LCD projection [and] I said, ‘I think I see
+				where things are going.’”<a href="#3" class="citation">[3]</a>
+			</p>
+			
+			<p>
+				But you can’t kill a protocol, it doesn’t work like that. There are people alive today who
+				still use Telnet. Gopher didn’t die, it just went a bit underground, where it continued to persist
+				through Y2K and the onset of the 21st century. These days, the original Gopher team has all but
+				moved on from the project, and its modern-day care and feeding is now largely carried out by a
+				California-based man named Cameron Kaiser, owner of Floodgap Systems, whose Gopher
+				server at gopher.floodgap.com now acts as the largest load-bearing junction point in the
+				entirety of Gopherspace.<a href="#12" class="citation">[12]</a> Floodgap offers an online Gopher 
+				proxy and maintains the Overbite Project, an initiative to regularly release and update modern-day
+				Gopher client and server software that’s compatible with contemporary systems.
+				<a href="#13" class="citation">[13]</a> Kaiser has gone on record saying that he believes the Web has
+				wandered astray in recent years in terms of overhead, clutter and bandwidth requirements, and, if you 
+				use it for any length of time in the present day, you might find yourself agreeing with him. He argues
+				that despite lacking many of quality-of-life features and versatility the Web has come to possess,
+				Gopher is still entirely viable for many avenues of net-surfing and is even superior in certain
+				regards.<a href="#12" class="citation">[12]</a> And if you wanna give Gopher a shot, it’s
+				honestly not that difficult; a good deal of non-mainline browsers support it, and there’s even a
+				handful of up-to-date dedicated browsers that deal in nothing but Gopher. During research for
+				this video, I used Lynx because I’m a dork, but you don’t have to do that and the resources
+				offered by Floodgap make the process of onboarding almost entirely painless. The whole thing,
+				for whatever it’s worth, gets my endorsement. I say try it out. The story of Gopher isn’t a story
+				of competition, of wasted potential or ruinous downfalls; it’s just another chapter in the still-
+				ongoing narrative of the internet, and, if you will, a reminder that just because something
+				seems like it’s always been and forever will be doesn’t mean that’s truly the case. I think, these
+				days, that’s something important to remember.
+			</p>
+			
+			<p class="purple-glow hey">
+				Thanks for watching, everybody, and have a good night.
+			</p>
+			
+			<div class="citations">
+				<p id="1"><span>1 </span>
+					MDN Contributors. “An Overview of HTTP - HTTP | MDN.” MDN Web Docs, Mozilla Foundation, 14 Mar. 2025
+					<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview">
+					  developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview.
+					</a>
+				</p>
+				<p id="2"><span>2 </span>
+					CERN. “A Short History of the Web.” Home.cern, CERN, 2019,
+					<a href="https://home.cern/science/computing/birth-web/short-history-web">
+					  home.cern/science/computing/birth-web/short-history-web.
+					</a>
+				</p>
+				<p id="3"><span>3 </span>
+					Gihring, Tim. “The Rise and Fall of the Gopher Protocol.” MinnPost, 11 Aug. 2016,
+					<a href="https://www.minnpost.com/business/2016/08/rise-and-fall-gopher-protocol/">
+					  www.minnpost.com/business/2016/08/rise-and-fall-gopher-protocol/.
+					</a>
+				</p>
+				<p id="4"><span>4 </span>
+					[RFC1436] Anklesaria, F., McCahill, M., Lindner, P., Johnson, D., Torrey, D., Alberti, B.,
+					University of Minnesota, “The Internet Gopher Protocol (a distributed document search and
+					retrieval protocol)”, RFC 1436, DOI 10.17487, March 1993,
+					<a href="https://www.rfc-editor.org/rfc/rfc1436.txt">
+					  www.rfc-editor.org/rfc/rfc1436.txt
+					</a>
+				</p>
+				<p id="5"><span>5 </span>
+					Murphy, Julia, et al. “Internet.” Our World in Data, Our World in Data, 2023, ourworldindata.org/internet.
+				</p>
+				<p id="6"><span>6 </span>
+					Featherly, Kevin. “ARPANET | Definition, Map, Cold War, First Message, & History.”
+					Encyclopedia Britannica, 11 May 2016,
+					<a href="https://britannica.com/topic/ARPANET">
+					  Britannica.com/topic/ARPANET.
+					</a>
+				</p>
+				<p id="7"><span>7 </span>
+					Smith, Judy, and Daniel Updegrove. “Navigating the Internet: Tools for Discovery.”
+					PennPrintout, vol. 9, no. 4, Feb. 1993,
+					<a href="https://web.archive.org/web/20170410095711/www.upenn.edu/computing/printout/archive/v09/4/navigation.html">
+					  www.minnpost.com/business/2016/08/rise-and-fall-gopher-protocol/.
+					</a>
+					Accessed 4 Sept. 2025.
+				</p>
+				<p id="8"><span>8 </span>
+					Riddle, Prentiss. “GopherCon ’92: Trip Report.” Higher Intellect Vintage Wiki, 17 Aug. 1992,
+					<a href="https://wiki.preterhuman.net/GopherCon_%2792:_Trip_report">
+					  wiki.preterhuman.net/GopherCon_%2792:_Trip_report.
+					</a>
+					 Accessed 4 Sept. 2025.
+				</p>
+				<p id="9"><span>9 </span>
+					History, Minnesota Computing. “Gopher Protocol – Minnesota Computing History.” MNComputingHistory,
+					<a href="https://mncomputinghistory.com/gopher-protocol/">
+					  mncomputinghistory.com/gopher-protocol/.
+					</a>
+				</p>
+				<p id="10"><span>10 </span>
+					Riddle, Prentiss. “Trip Report: 1993 GopherCon.” Prentissriddle.com, 12 Apr. 1993,
+					<a href="https://prentissriddle.com/trips/gophercon1993.html">
+					  prentissriddle.com/trips/gophercon1993.html.
+					</a>
+					Accessed 4 Sept. 2025.
+				</p>
+				<p id="11"><span>11 </span>
+					Vetter, Ronald J. Mosaic and the World Wide Web. North Dakota State University, Oct. 1994,
+					<a href="https://web.archive.org/web/20140824192903/vision.unipv.it/wdt-cim/articoli/00318591.pdf">
+					  web.archive.org/web/20140824192903/vision.unipv.it/wdt-cim/articoli/00318591.pdf.
+					</a>
+				</p>
+				<p id="12"><span>12 </span>
+					Smith, Ernie. “Modern Day Gopher: The Protocol That the Web Beat.” Tedium:
+					The Dull Side of the Internet., 22 June 2017,
+					<a href="https://tedium.co/2017/06/22/modern-day-gopher-history/">
+					   tedium.co/2017/06/22/modern-day-gopher-history/.
+					</a>
+					 Accessed 4 Sept. 2025.
+				</p>
+				<p id="13"><span>13 </span>
+					Floodgap Systems. “The Overbite Project @ Floodgap -- Gopher Client Software for Modern Operating Systems,
+					Browsers and Mobile Devices.” Floodgap.com, 2022,
+					<a href="https://gopher.floodgap.com/overbite/">
+					  gopher.floodgap.com/overbite/.
+					</a>
+					Accessed 4 Sept. 2025.
+				</p>
+			</div>
+		</main>
+		
+		<script type="text/javascript" src="../scripts/toggle-citations.js"></script>
+		
+	</body>
+</html>
