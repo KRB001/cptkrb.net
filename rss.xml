@@ -5,6 +5,14 @@
         <link>https://cptkrb.net</link>
         <description>Official RSS feed for CPTKRB.net, mostly news and updates and such</description>
         <language>en-us</language>
+		<item>
+            <title>documents up to date January 2026</title>
+            <description>
+                hey kids, this doesn't warrant its own version number, but the site docs are now
+				up-to-date with all videos posted :]
+            </description>
+			<pubDate>Fri, 9 Jan 2026 14:20:00 -0400</pubDate>
+        </item>
         <item>
             <title>[ version 1.2.2 ] i guess this is a hotfix</title>
             <description>
