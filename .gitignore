@@ -5,4 +5,5 @@ testing.html
 testing2.html
 
 music-files/*
+temp/*
 !music-files/manifest.txt
